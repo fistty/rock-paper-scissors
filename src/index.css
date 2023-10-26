@@ -31,4 +31,5 @@ body {
 	min-height: 100vh;
 	background-image: radial-gradient(#1f3756, #141539);
 	color: white;
+	margin-top: 2rem;
 }

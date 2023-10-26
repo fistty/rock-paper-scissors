@@ -1,11 +1,92 @@
 #root {
 	margin: 0 auto;
-	max-width: 14400px;
+	max-width: 900rem;
 	min-height: 100vh;
 }
 
 header {
+	width: 100%;
+	/* padding-inline: 31px; */
+}
+
+.header-container {
+	width: calc(100% - 30px);
+	max-width: 500px;
+	height: 6.125rem;
+	border: 3px solid #606e85;
+	border-radius: 0.3125rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 auto;
+	padding-right: 0.75rem;
+	padding-left: 1.5625rem;
+}
+
+.game-logo-container {
+	width: 85px;
+	height: 50px;
+}
+
+.game-logo {
+	display: block;
 	max-width: 100%;
-	border: 1px solid #606e85;
-	border-radius: 5px;
+}
+
+/*-----------------------------------*\
+     SCORE
+/*-----------------------------------*/
+
+.score-div {
+	background-color: white;
+	width: 5rem;
+	height: 4.5rem;
+	border-radius: 0.3125rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.score-description {
+	text-transform: uppercase;
+	color: #2a46c0;
+	font-weight: 700;
+	font-size: 9px;
+	letter-spacing: 1px;
+}
+
+.score-count {
+	color: #3b4363;
+	font-size: 2.1875rem;
+	font-weight: 700;
+}
+
+/*-----------------------------------*\
+     FOOTER
+/*-----------------------------------*/
+
+footer {
+	width: calc(100% - 30px);
+	max-width: 500px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.footer-button {
+	width: 120px;
+	height: 35px;
+	color: white;
+	display: block;
+	background-color: transparent;
+	outline: none;
+	border: 1px solid rgba(255, 255, 255, 0.747);
+	border-radius: 9px;
+	font-family: var(--font);
+	font-weight: 500;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 }
