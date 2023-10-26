@@ -1,3 +1,8 @@
 export default function Footer() {
-	return <div>Footer</div>;
+	return (
+		<footer>
+			<button className="footer-button new-game-button">New Game</button>
+			<button className="footer-button rules-button">Rules</button>
+		</footer>
+	);
 }
