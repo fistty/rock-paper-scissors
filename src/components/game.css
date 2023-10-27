@@ -1,0 +1,108 @@
+/*-----------------------------------*\
+     GAME COMPONENT
+/*-----------------------------------*/
+.main-game {
+	width: 310px;
+	width: calc(100% - 60px);
+	max-width: 337px;
+	height: 282px;
+	/* border: 1px solid rgb(245, 243, 243); */
+	margin: 0 auto;
+	position: relative;
+	background-image: url("../assets//bg-triangle.svg");
+	background-position: center;
+	background-size: 77% 63%;
+	background-repeat: no-repeat;
+}
+
+/*-----------------------------------*\
+     GAME CARD
+/*-----------------------------------*/
+
+.game-card {
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: all 200ms ease;
+}
+
+@media screen and (max-width: 320px) {
+	.game-card {
+		width: 120px;
+		height: 120px;
+	}
+}
+
+.game-card:hover {
+	filter: brightness(1.1);
+	transform: scale(1.2);
+}
+
+.game-card-image-container {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: rgb(234 235 234);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media screen and (max-width: 335px) {
+	.game-card {
+		width: 120px;
+		height: 120px;
+	}
+
+	.game-card-image-container {
+		width: 98px;
+		height: 98px;
+	}
+}
+
+.game-card img {
+	display: block;
+}
+
+.paper-card {
+	background-image: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	display: flex;
+	outline: none;
+	border: none;
+	background-color: unset;
+}
+
+.scissors-card {
+	background-image: radial-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	/* transform: translateX(100%); */
+	display: flex;
+	outline: none;
+	border: none;
+	background-color: unset;
+}
+
+.rock-card {
+	background-image: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+	position: absolute;
+	bottom: 0%;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	outline: none;
+	border: none;
+	background-color: unset;
+}
+
+.rock-card:hover {
+	transform: translateX(-50%) scale(1.2);
+}

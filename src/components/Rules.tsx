@@ -23,7 +23,6 @@ export default function Rules({ setIsRulesVisible }: PropsType) {
 	return (
 		<motion.div
 			id="rules"
-			key="2"
 			initial={{ opacity: 0, x: 500 }}
 			animate={controls}
 			exit={{ opacity: 0, x: 0 }}
