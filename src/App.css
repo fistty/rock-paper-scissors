@@ -1,12 +1,20 @@
 #root {
-	margin: 0 auto;
+	width: 100%;
+	min-height: 100vh;
+}
+
+.app {
 	max-width: 900rem;
 	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: relative;
 }
 
 header {
 	width: 100%;
-	/* padding-inline: 31px; */
+	margin-top: 2rem;
 }
 
 .header-container {
@@ -70,23 +78,101 @@ footer {
 	width: calc(100% - 30px);
 	max-width: 500px;
 	margin: 0 auto;
+	margin-bottom: 51px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
 
 .footer-button {
-	width: 120px;
-	height: 35px;
+	width: 8.4375rem;
+	height: 2.1875rem;
 	color: white;
 	display: block;
 	background-color: transparent;
 	outline: none;
-	border: 1px solid rgba(255, 255, 255, 0.747);
+	border: 2px solid #ffffffbe;
 	border-radius: 9px;
 	font-family: var(--font);
-	font-weight: 500;
-	font-size: 12px;
+	font-weight: 600;
+	font-size: 14px;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: 2px;
+	cursor: pointer;
+	transition: all 200ms ease;
+}
+
+.footer-button:hover {
+	background-color: #ffffffbe;
+	color: #141539;
+}
+
+/*-----------------------------------*\
+		 RULES
+/*-----------------------------------*/
+#rules {
+	height: 100%;
+	background-color: white;
+}
+
+.rules-container {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 4.3125rem;
+	padding-bottom: 4.125rem;
+}
+
+@media screen and (max-height: 520px) {
+	.rules-container {
+		height: 700px;
+	}
+}
+
+h2 {
+	text-transform: uppercase;
+	color: rgb(59 66 95);
+	text-align: center;
+	font-weight: 700;
+	font-size: 30px;
+}
+
+.rules-image-container {
+	max-width: 305px;
+	height: auto;
+}
+
+.rules-image-container img {
+	display: block;
+	max-width: 100%;
+}
+
+.rules-close-button-container {
+	width: 35px;
+	height: 35px;
+}
+
+.rules-close-button {
+	display: block;
+	border: 1px solid transparent;
+	outline: none;
+	background-color: transparent;
+	transition: all 200ms ease;
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	padding: 4px;
+	border-radius: 5px;
+}
+
+.rules-close-button:hover {
+	border: 1px solid grey;
+}
+
+.rules-close-button > img {
+	width: 100%;
+	max-width: 100%;
+	display: block;
 }
