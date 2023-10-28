@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import rockIcon from "../assets/icon-rock.svg";
-import { PropTypes } from "../types";
+import { PropTypes } from "../typ";
 
 export default function Rock({ setPlayerPick }: PropTypes) {
 	const rockRef = useRef<HTMLButtonElement>(null);
