@@ -42,7 +42,7 @@
 }
 
 .game-card:hover {
-	filter: brightness(1.1);
+	filter: brightness(1.05);
 	transform: scale(1.2);
 }
 
@@ -73,26 +73,27 @@
 }
 
 .paper-card {
-	background-image: radial-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+	background-image: radial-gradient(rgb(72, 101, 244), rgb(86, 113, 245));
 	position: absolute;
 	top: 0%;
 	left: 0%;
 	outline: none;
 	border: none;
 	background-color: unset;
+	box-shadow: rgb(72 101 244) 0px 0px 10px 0px;
 }
 
 .scissors-card {
-	background-image: radial-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+	background-image: radial-gradient(rgb(236, 158, 14), rgb(236, 169, 34));
 	position: absolute;
 	top: 0%;
 	left: 62%;
 	/* right: 0%; */
 	/* transform: translateX(159%); */
 	outline: none;
-	border: none;
+	border: 1px solid rgb(236 158 14);
 	background-color: unset;
-	/* transition: unset; */
+	box-shadow: rgb(236 158 14) 0px 0px 15px 0px;
 }
 
 .scissors-card-transform {
@@ -100,14 +101,15 @@
 }
 
 .rock-card {
-	background-image: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+	background-image: radial-gradient(rgb(220, 46, 78), rgb(221, 64, 93));
 	position: absolute;
 	top: 54%;
 	left: 50%;
 	transform: translateX(-50%);
 	outline: none;
-	border: none;
+	border: 1px solid rgb(221, 64, 93);
 	background-color: unset;
+	box-shadow: rgb(220 46 78) 0px 0px 15px 0px;
 }
 
 .rock-card-transform {
@@ -124,21 +126,17 @@
 	transform: scale(1.2);
 }
 
-.rock-card-mouse-over {
-	transform: translateX(-50%) scale(1.2);
-}
-
-@media not all and (hover: hover) {
-	.rock-card-transform:hover {
-		transform: scale(1.2);
+@media screen and (max-width: 1100px) {
+	.game-card:hover {
+		filter: brightness(1.1);
+		transform: unset;
 	}
 
-	.rock-card-mouse-over {
+	.rock-card:hover {
 		transform: translateX(-50%);
 	}
 
-	.game-card:hover {
-		filter: brightness(1.1);
+	.rock-card-transform:hover {
 		transform: unset;
 	}
 }
