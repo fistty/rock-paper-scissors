@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import scissorsIcon from "../assets/icon-scissors.svg";
-import { PropTypes } from "../typ";
+import { PropTypes } from "../gameRules";
 
 export default function Scissors({ setPlayerPick }: PropTypes) {
 	const scissorsRef = useRef<HTMLButtonElement>(null);

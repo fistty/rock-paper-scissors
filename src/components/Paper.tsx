@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import paperIcon from "../assets/icon-paper.svg";
-import { PropTypes } from "../typ";
+import { PropTypes } from "../gameRules";
 
 export default function Paper({ playerPick, setPlayerPick }: PropTypes) {
 	const [isParagraph, setIsParagraph] = useState(false);
