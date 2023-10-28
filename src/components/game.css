@@ -31,6 +31,7 @@
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	border: 1px solid transparent;
 	transition: all 200ms ease;
 }
 
@@ -54,6 +55,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	box-shadow: 0px 5px 1px 0px rgb(185 192 193) inset;
 }
 
 @media screen and (max-width: 335px) {
@@ -78,9 +80,8 @@
 	top: 0%;
 	left: 0%;
 	outline: none;
-	border: none;
 	background-color: unset;
-	box-shadow: rgb(72 101 244) 0px 0px 10px 0px;
+	box-shadow: rgb(40 63 159) 1px 7px 2px 0px;
 }
 
 .scissors-card {
@@ -91,9 +92,8 @@
 	/* right: 0%; */
 	/* transform: translateX(159%); */
 	outline: none;
-	border: 1px solid rgb(236 158 14);
 	background-color: unset;
-	box-shadow: rgb(236 158 14) 0px 0px 15px 0px;
+	box-shadow: rgb(179 128 27) 1px 7px 2px 0px;
 }
 
 .scissors-card-transform {
@@ -107,15 +107,14 @@
 	left: 50%;
 	transform: translateX(-50%);
 	outline: none;
-	border: 1px solid rgb(221, 64, 93);
 	background-color: unset;
-	box-shadow: rgb(220 46 78) 0px 0px 15px 0px;
+	box-shadow: rgb(174 47 68) 1px 7px 2px 0px;
 }
 
 .rock-card-transform {
-	top: 0%;
-	left: 0%;
 	transform: translateX(0%);
+	left: 0%;
+	top: 0%;
 }
 
 .rock-card:hover {
