@@ -6,8 +6,6 @@ import "./App.css";
 import GameComponent from "./components/GameComponent";
 
 function App() {
-	console.log(App);
-
 	const [isRulesVisible, setIsRulesVisible] = useState<boolean>(false);
 	const [isResult, setIsResult] = useState<boolean>(false);
 	return (
