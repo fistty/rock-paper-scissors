@@ -1,7 +1,7 @@
-import { motion, useAnimation } from "framer-motion";
 import rulesSvg from "../assets/image-rules.svg";
 import closeSvg from "../assets/icon-close.svg";
 import { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 type PropsType = {
 	setIsRulesVisible: React.Dispatch<React.SetStateAction<boolean>>;

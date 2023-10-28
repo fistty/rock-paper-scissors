@@ -1,11 +1,12 @@
-import paperIcon from "../assets/icon-paper.svg";
-import rockIcon from "../assets/icon-rock.svg";
-import scissorsIcon from "../assets/icon-scissors.svg";
+export interface PropTypes {
+	playerPick: string;
+}
+
 export default function GameResult() {
 	return (
-		<button className="game-card rock-card">
+		<button className={`game-card computer-pick`}>
 			<div className="game-card-image-container">
-				<img src={rockIcon} alt="rock icon" />
+				<img src={""} alt="rock icon" />
 			</div>
 		</button>
 	);
