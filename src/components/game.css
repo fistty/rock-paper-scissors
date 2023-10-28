@@ -128,7 +128,7 @@
 	transform: translateX(-50%) scale(1.2);
 }
 
-@media (hover: none) {
+@media not all and (hover: hover) {
 	.rock-card-transform:hover {
 		transform: scale(1.2);
 	}
