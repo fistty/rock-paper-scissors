@@ -15,6 +15,10 @@
 	background-repeat: no-repeat;
 }
 
+.main-game-no-background {
+	background: unset;
+}
+
 /*-----------------------------------*\
      GAME CARD
 /*-----------------------------------*/
@@ -73,7 +77,6 @@
 	position: absolute;
 	top: 0%;
 	left: 0%;
-	display: flex;
 	outline: none;
 	border: none;
 	background-color: unset;
@@ -83,26 +86,40 @@
 	background-image: radial-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
 	position: absolute;
 	top: 0%;
-	right: 0%;
-	/* transform: translateX(100%); */
-	display: flex;
+	left: 62%;
+	/* right: 0%; */
+	/* transform: translateX(159%); */
 	outline: none;
 	border: none;
 	background-color: unset;
+	/* transition: unset; */
+}
+
+.scissors-card-animation {
+	left: 0%;
 }
 
 .rock-card {
 	background-image: radial-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
 	position: absolute;
-	bottom: 0%;
+	top: 54%;
 	left: 50%;
 	transform: translateX(-50%);
-	display: flex;
 	outline: none;
 	border: none;
 	background-color: unset;
 }
 
+.rock-card-animation {
+	top: 0%;
+	left: 0%;
+	transform: translateX(0%);
+}
+
 .rock-card:hover {
 	transform: translateX(-50%) scale(1.2);
+}
+
+.rock-card-animation:hover {
+	transform: scale(1.2);
 }
