@@ -13,7 +13,7 @@ function App() {
 	return (
 		<div className="app">
 			{!isRulesVisible && <Header />}
-			{!isRulesVisible && <GameComponent />}
+			<GameComponent />
 			{!isRulesVisible && <Footer setIsRulesVisible={setIsRulesVisible} />}
 			{isRulesVisible && <Rules setIsRulesVisible={setIsRulesVisible} />}
 		</div>
