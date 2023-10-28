@@ -127,3 +127,18 @@
 .rock-card-mouse-over {
 	transform: translateX(-50%) scale(1.2);
 }
+
+@media (hover: none) {
+	.rock-card-transform:hover {
+		transform: scale(1.2);
+	}
+
+	.rock-card-mouse-over {
+		transform: translateX(-50%);
+	}
+
+	.game-card:hover {
+		filter: brightness(1.1);
+		transform: unset;
+	}
+}

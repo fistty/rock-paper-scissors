@@ -8,16 +8,8 @@ export default function Rock() {
 		rockRef.current?.classList.toggle("rock-card-transform");
 	};
 
-	const handleMouseLeave = () => {
-		rockRef.current?.classList.remove("rock-card-mouse-over");
-		console.log(2);
-	};
-
 	useEffect(() => {
 		rockRef.current?.classList.remove("rock-card-amination");
-		if (rockRef.current) {
-			rockRef.current.addEventListener("mouseleave", handleMouseLeave);
-		}
 	}, []);
 
 	return (
