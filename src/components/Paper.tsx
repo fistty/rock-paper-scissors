@@ -6,6 +6,7 @@ export default function Paper({ playerPick, setPlayerPick }: PropTypes) {
 	const [isParagraph, setIsParagraph] = useState(false);
 	const cardSelection = () => {
 		setPlayerPick("Paper");
+		console.log("Picked");
 	};
 
 	useEffect(() => {
