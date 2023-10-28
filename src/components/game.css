@@ -125,6 +125,20 @@
 	transform: scale(1.2);
 }
 
+.computer-pick {
+	position: absolute;
+	left: 62%;
+	top: 0%;
+}
+
+.computer-pick.rock-card {
+	transform: translateX(0%);
+}
+
+.computer-pick.rock-card:hover {
+	transform: translateX(0%);
+}
+
 @media screen and (max-width: 1100px) {
 	.game-card:hover {
 		filter: brightness(1.1);
