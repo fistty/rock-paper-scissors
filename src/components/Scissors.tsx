@@ -1,10 +1,12 @@
 import { useEffect, useRef } from "react";
 import scissorsIcon from "../assets/icon-scissors.svg";
+import { PropTypes } from "../types";
 
-export default function Scissors() {
+export default function Scissors({ setPlayerPick }: PropTypes) {
 	const scissorsRef = useRef<HTMLButtonElement>(null);
-	const animatePosition = () => {
+	const cardSelection = () => {
 		scissorsRef.current?.classList.toggle("scissors-card-transform");
+		setPlayerPick("Scissors");
 	};
 
 	useEffect(() => {
@@ -14,7 +16,7 @@ export default function Scissors() {
 	return (
 		<button
 			className="game-card scissors-card"
-			onClick={animatePosition}
+			onClick={cardSelection}
 			ref={scissorsRef}
 		>
 			<div className="game-card-image-container">
