@@ -95,7 +95,7 @@
 	/* transition: unset; */
 }
 
-.scissors-card-animation {
+.scissors-card-transform {
 	left: 0%;
 }
 
@@ -110,7 +110,7 @@
 	background-color: unset;
 }
 
-.rock-card-animation {
+.rock-card-transform {
 	top: 0%;
 	left: 0%;
 	transform: translateX(0%);
@@ -120,6 +120,10 @@
 	transform: translateX(-50%) scale(1.2);
 }
 
-.rock-card-animation:hover {
+.rock-card-transform:hover {
 	transform: scale(1.2);
+}
+
+.rock-card-mouse-over {
+	transform: translateX(-50%) scale(1.2);
 }
