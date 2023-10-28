@@ -8,9 +8,6 @@ import GameComponent from "./components/GameComponent";
 function App() {
 	const [isRulesVisible, setIsRulesVisible] = useState<boolean>(false);
 	const [isResult, setIsResult] = useState<boolean>(false);
-	const prom = () => {
-		// const new Promise.all
-	};
 	return (
 		<div className="app">
 			{!isRulesVisible && <Header />}
