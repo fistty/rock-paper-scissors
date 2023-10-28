@@ -7,7 +7,6 @@ import "./App.css";
 
 function App() {
 	const [isRulesVisible, setIsRulesVisible] = useState<boolean>(false);
-	const [isResult, setIsResult] = useState<boolean>(false);
 	return (
 		<div className="app">
 			{!isRulesVisible && <Header />}
