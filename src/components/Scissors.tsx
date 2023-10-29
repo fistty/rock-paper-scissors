@@ -1,15 +1,15 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import scissorsIcon from "../assets/icon-scissors.svg";
+import { PropTypes } from "../types";
 
-export interface PropTypes {
-	playerPick: string;
-	setPlayerPick: React.Dispatch<React.SetStateAction<string>>;
-}
+export default function Scissors({ playerPick, setPlayerPick }: PropTypes) {
+	const [isParagraph, setIsParagraph] = useState(false);
 
-export default function Scissors({ setPlayerPick }: PropTypes) {
 	const scissorsRef = useRef<HTMLButtonElement>(null);
+
 	const cardSelection = () => {
-		scissorsRef.current?.classList.toggle("scissors-card-transform");
+		const cls = ["scissors-card-transform", "picked-card"];
+		scissorsRef.current?.classList.add(...cls);
 		setPlayerPick("Scissors");
 	};
 
@@ -17,15 +17,25 @@ export default function Scissors({ setPlayerPick }: PropTypes) {
 		scissorsRef.current?.classList.remove("scissors-card-amination");
 	}, []);
 
+	useEffect(() => {
+		if (playerPick !== "") {
+			setTimeout(() => {
+				setIsParagraph(true);
+			}, 500);
+		}
+	}, [playerPick]);
+
 	return (
 		<button
 			className="game-card scissors-card"
+			disabled={playerPick === "" ? false : true}
 			onClick={cardSelection}
 			ref={scissorsRef}
 		>
 			<div className="game-card-image-container">
 				<img src={scissorsIcon} alt="scissors icon" />
 			</div>
+			{isParagraph && <span>You picked </span>}
 		</button>
 	);
 }

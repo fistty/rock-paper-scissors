@@ -1,16 +1,16 @@
-import { useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import rockIcon from "../assets/icon-rock.svg";
+import { PropTypes } from "../types";
 
-export interface PropTypes {
-	playerPick: string;
-	setPlayerPick: React.Dispatch<React.SetStateAction<string>>;
-}
+export default function Rock({ playerPick, setPlayerPick }: PropTypes) {
+	const [isParagraph, setIsParagraph] = useState(false);
 
-export default function Rock({ setPlayerPick }: PropTypes) {
 	const rockRef = useRef<HTMLButtonElement>(null);
 
 	const cardSelection = () => {
-		rockRef.current?.classList.toggle("rock-card-transform");
+		const cls = ["rock-card-transform", "picked-card"];
+		rockRef.current?.classList.add(...cls);
+
 		setPlayerPick("Rock");
 	};
 
@@ -18,11 +18,25 @@ export default function Rock({ setPlayerPick }: PropTypes) {
 		rockRef.current?.classList.remove("rock-card-amination");
 	}, []);
 
+	useEffect(() => {
+		if (playerPick !== "") {
+			setTimeout(() => {
+				setIsParagraph(true);
+			}, 500);
+		}
+	}, [playerPick]);
+
 	return (
-		<button className="game-card rock-card" onClick={cardSelection} ref={rockRef}>
+		<button
+			className={"game-card rock-card"}
+			disabled={playerPick === "" ? false : true}
+			onClick={cardSelection}
+			ref={rockRef}
+		>
 			<div className="game-card-image-container">
 				<img src={rockIcon} alt="rock icon" />
 			</div>
+			{isParagraph && <span>You picked </span>}
 		</button>
 	);
 }
