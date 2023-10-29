@@ -13,6 +13,9 @@ export default function GameComponent() {
 		playerPick: string,
 		componentName: string
 	) => {
+		console.log("PlayerPick <<<=== ", playerPick);
+		console.log("componentName =>>> ", componentName);
+
 		if (playerPick === "") {
 			return true;
 		}
@@ -24,7 +27,7 @@ export default function GameComponent() {
 
 	useEffect(() => {
 		if (playerPick !== "") {
-			alert(playerPick);
+			// alert(playerPick);
 			setTimeout(() => {
 				setIsComputerPick(true);
 			}, 2000);
