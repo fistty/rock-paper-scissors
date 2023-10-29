@@ -9,47 +9,66 @@ export default function GameComponent() {
 	const [playerPick, setPlayerPick] = useState<string>("");
 	const [isComputerPick, setIsComputerPick] = useState(false);
 
-	const displayGameCardOnSelection = (
-		playerPick: string,
-		componentName: string
-	) => {
-		console.log("PlayerPick <<<=== ", playerPick);
-		console.log("componentName =>>> ", componentName);
-
-		if (playerPick === "") {
-			return true;
-		}
-
-		if (playerPick === componentName) {
-			return true;
-		}
-	};
-
 	useEffect(() => {
 		if (playerPick !== "") {
-			// alert(playerPick);
 			setTimeout(() => {
 				setIsComputerPick(true);
 			}, 2000);
 		}
 	}, [playerPick]);
+	const content = () => {
+		switch (playerPick) {
+			case "Rock":
+				return (
+					<>
+						{false && <Paper playerPick={playerPick} setPlayerPick={setPlayerPick} />}
+						{false && (
+							<Scissors playerPick={playerPick} setPlayerPick={setPlayerPick} />
+						)}
+						{true && <Rock playerPick={playerPick} setPlayerPick={setPlayerPick} />}
+					</>
+				);
+
+			case "Paper":
+				return (
+					<>
+						{true && <Paper playerPick={playerPick} setPlayerPick={setPlayerPick} />}
+						{false && (
+							<Scissors playerPick={playerPick} setPlayerPick={setPlayerPick} />
+						)}
+						{false && <Rock playerPick={playerPick} setPlayerPick={setPlayerPick} />}
+					</>
+				);
+
+			case "Scissors":
+				return (
+					<>
+						{false && <Paper playerPick={playerPick} setPlayerPick={setPlayerPick} />}
+						{true && (
+							<Scissors playerPick={playerPick} setPlayerPick={setPlayerPick} />
+						)}
+						{false && <Rock playerPick={playerPick} setPlayerPick={setPlayerPick} />}
+					</>
+				);
+			default:
+				return (
+					<>
+						{<Paper playerPick={playerPick} setPlayerPick={setPlayerPick} />}
+						{<Scissors playerPick={playerPick} setPlayerPick={setPlayerPick} />}
+						{<Rock playerPick={playerPick} setPlayerPick={setPlayerPick} />}
+					</>
+				);
+		}
+	};
 
 	return (
 		<main
 			className={
-				playerPick === "" ? `main-game` : "main-game main-game-no-background"
+				playerPick === "" ? "main-game" : "main-game main-game-no-background"
 			}
 		>
-			{displayGameCardOnSelection(playerPick, Paper.name) && (
-				<Paper playerPick={playerPick} setPlayerPick={setPlayerPick} />
-			)}
-			{displayGameCardOnSelection(playerPick, Scissors.name) && (
-				<Scissors playerPick={playerPick} setPlayerPick={setPlayerPick} />
-			)}
-			{displayGameCardOnSelection(playerPick, Rock.name) && (
-				<Rock playerPick={playerPick} setPlayerPick={setPlayerPick} />
-			)}
-			{/* <ComputerPick isComputerPick={isComputerPick} /> */}
+			{content()}
+			<ComputerPick isComputerPick={isComputerPick} />
 		</main>
 	);
 }
