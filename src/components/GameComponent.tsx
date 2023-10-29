@@ -23,9 +23,8 @@ export default function GameComponent() {
 	};
 
 	useEffect(() => {
-		console.log(playerPick);
-
 		if (playerPick !== "") {
+			alert(playerPick);
 			setTimeout(() => {
 				setIsComputerPick(true);
 			}, 2000);
@@ -47,7 +46,7 @@ export default function GameComponent() {
 			{displayGameCardOnSelection(playerPick, Rock.name) && (
 				<Rock playerPick={playerPick} setPlayerPick={setPlayerPick} />
 			)}
-			<ComputerPick isComputerPick={isComputerPick} />
+			{/* <ComputerPick isComputerPick={isComputerPick} /> */}
 		</main>
 	);
 }

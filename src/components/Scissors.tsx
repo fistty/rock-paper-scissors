@@ -1,6 +1,10 @@
 import { useEffect, useRef } from "react";
 import scissorsIcon from "../assets/icon-scissors.svg";
-import { PropTypes } from "../gameRules";
+
+export interface PropTypes {
+	playerPick: string;
+	setPlayerPick: React.Dispatch<React.SetStateAction<string>>;
+}
 
 export default function Scissors({ setPlayerPick }: PropTypes) {
 	const scissorsRef = useRef<HTMLButtonElement>(null);

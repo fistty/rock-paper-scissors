@@ -32,8 +32,6 @@ export default function ComputerPick({ isComputerPick }: PropTypes) {
 		}
 	};
 
-	randomNumberGenerator();
-
 	return (
 		<button className={`game-card computer-pick ${randomNumberGenerator()}`}>
 			<div className="game-card-image-container">
