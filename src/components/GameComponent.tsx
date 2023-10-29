@@ -11,11 +11,10 @@ export default function GameComponent() {
 
 	useEffect(() => {
 		if (playerPick !== "") {
-			setTimeout(() => {
-				setIsComputerPick(true);
-			}, 2000);
+			setIsComputerPick(true);
 		}
 	}, [playerPick]);
+
 	const content = () => {
 		switch (playerPick) {
 			case "Rock":

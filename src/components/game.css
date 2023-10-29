@@ -81,7 +81,7 @@
 	left: 0%;
 	outline: none;
 	background-color: unset;
-	box-shadow: rgb(40 63 159) 1px 7px 2px 0px;
+	box-shadow: rgb(40 63 159) 1px 7px 0px 0px;
 }
 
 .scissors-card {
@@ -93,7 +93,7 @@
 	/* transform: translateX(159%); */
 	outline: none;
 	background-color: unset;
-	box-shadow: rgb(179 128 27) 1px 7px 2px 0px;
+	box-shadow: rgb(179 128 27) 1px 7px 0px 0px;
 }
 
 .scissors-card-transform {
@@ -108,7 +108,7 @@
 	transform: translateX(-50%);
 	outline: none;
 	background-color: unset;
-	box-shadow: rgb(174 47 68) 1px 7px 2px 0px;
+	box-shadow: rgb(174 47 68) 1px 7px 0px 0px;
 }
 
 .rock-card-transform {
@@ -125,10 +125,43 @@
 	transform: scale(1.2);
 }
 
+.picked-card {
+	position: relative;
+}
+
 .computer-pick {
 	position: absolute;
 	left: 62%;
 	top: 0%;
+}
+
+.picked-card > span,
+.computer-pick > span {
+	position: absolute;
+	bottom: -40px;
+	left: 50%;
+	transform: translateX(-50%);
+	color: white;
+	text-transform: uppercase;
+	width: 180px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 600;
+	font-family: var(--font);
+	font-size: 16px;
+	letter-spacing: 1.5px;
+}
+
+.computer-pick-placeholder {
+	position: absolute;
+	top: 8%;
+	left: 62%;
+	width: 6.875rem;
+	height: 6.875rem;
+	background-color: #0f182a;
+	border-radius: 50%;
+	/* z-index: -9; */
 }
 
 .computer-pick.rock-card {
