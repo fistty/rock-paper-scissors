@@ -2,19 +2,12 @@ import { useEffect, useState } from "react";
 import Paper from "./Paper";
 import Rock from "./Rock";
 import Scissors from "./Scissors";
-import "./game.css";
 import ComputerPick from "./ComputerPick";
+import "./game.css";
 
 export default function GameComponent() {
 	const [playerPick, setPlayerPick] = useState<string>("");
 	const [isComputerPick, setIsComputerPick] = useState(false);
-
-	useEffect(() => {
-		if (playerPick !== "") {
-			setIsComputerPick(true);
-		}
-	}, [playerPick]);
-
 	const content = () => {
 		switch (playerPick) {
 			case "Rock":
@@ -59,6 +52,12 @@ export default function GameComponent() {
 				);
 		}
 	};
+
+	useEffect(() => {
+		if (playerPick !== "") {
+			setIsComputerPick(true);
+		}
+	}, [playerPick]);
 
 	return (
 		<main
