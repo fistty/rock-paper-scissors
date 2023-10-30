@@ -52,7 +52,7 @@ export default function ComputerPick({ isComputerPick }: PropTypes) {
 		if (isComputerPick) {
 			setTimeout(() => {
 				setIsPlaceholder(true);
-			}, 1000);
+			}, 700);
 			setTimeout(() => {
 				setComputerPickDisplay(true);
 				setIsPlaceholder(false);
