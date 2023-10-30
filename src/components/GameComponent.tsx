@@ -1,13 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Paper from "./Paper";
 import Rock from "./Rock";
 import Scissors from "./Scissors";
 import ComputerPick from "./ComputerPick";
 import "./game.css";
+import GameResult from "./GameResult";
 
 export default function GameComponent() {
 	const [playerPick, setPlayerPick] = useState<string>("");
 	const [isComputerPick, setIsComputerPick] = useState(false);
+	const [gameResultDisplay, setGameResultDisplay] = useState<boolean>(false);
+
+	const GameComponentRef = useRef<HTMLElement | null>(null);
+
 	const content = () => {
 		switch (playerPick) {
 			case "Rock":
@@ -56,17 +61,30 @@ export default function GameComponent() {
 	useEffect(() => {
 		if (playerPick !== "") {
 			setIsComputerPick(true);
+			setTimeout(() => {
+				GameComponentRef.current?.classList.add("main-game-transform");
+			}, 350);
 		}
 	}, [playerPick]);
+
+	useEffect(() => {
+		if (isComputerPick) {
+			setTimeout(() => {
+				setGameResultDisplay(true);
+			}, 4000);
+		}
+	}, [isComputerPick]);
 
 	return (
 		<main
 			className={
 				playerPick === "" ? "main-game" : "main-game main-game-no-background"
 			}
+			ref={GameComponentRef}
 		>
 			{content()}
 			<ComputerPick isComputerPick={isComputerPick} />
+			{gameResultDisplay && <GameResult />}
 		</main>
 	);
 }
