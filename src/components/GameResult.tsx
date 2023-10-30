@@ -4,10 +4,13 @@ export interface PropTypes {
 
 export default function GameResult() {
 	return (
-		<button className={`game-card computer-pick`}>
-			<div className="game-card-image-container">
-				<img src={""} alt="rock icon" />
+		<div className="game-result">
+			<div className="result-win-lose">
+				<p>You win</p>
 			</div>
-		</button>
+			<div className="result-button-container">
+				<button>Play again</button>
+			</div>
+		</div>
 	);
 }
