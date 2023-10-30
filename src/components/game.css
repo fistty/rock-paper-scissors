@@ -6,7 +6,6 @@
 	width: calc(100% - 60px);
 	max-width: 337px;
 	height: 282px;
-	/* border: 1px solid rgb(245, 243, 243); */
 	margin: 0 auto;
 	margin-top: 6rem;
 	position: relative;
@@ -14,16 +13,20 @@
 	background-position: center;
 	background-size: 77% 63%;
 	background-repeat: no-repeat;
+	transition: transform 150ms ease;
 }
 
 .main-game-no-background {
 	background: unset;
 }
 
+.main-game-transform {
+	transform: translateY(-10%);
+}
+
 /*-----------------------------------*\
      GAME CARD
 /*-----------------------------------*/
-
 .game-card {
 	width: 130px;
 	height: 130px;
@@ -89,7 +92,7 @@
 	background-image: radial-gradient(rgb(236, 158, 14), rgb(236, 169, 34));
 	position: absolute;
 	top: 0%;
-	left: 62%;
+	left: 60%;
 	/* right: 0%; */
 	/* transform: translateX(159%); */
 	outline: none;
@@ -130,10 +133,18 @@
 	position: relative;
 }
 
+.picked-card:hover {
+	transform: unset;
+}
+
 .computer-pick {
 	position: absolute;
-	left: 62%;
+	left: 60%;
 	top: 0%;
+}
+
+.computer-pick:hover {
+	transform: unset;
 }
 
 .picked-card > span,
@@ -157,12 +168,11 @@
 .computer-pick-placeholder {
 	position: absolute;
 	top: 4%;
-	left: 65.1%;
+	left: 63.1%;
 	width: 6.875rem;
 	height: 6.875rem;
 	background-color: #0f182a;
 	border-radius: 50%;
-
 	box-shadow: 0px 0px 0px 1px #0000001a;
 	animation: pulse-animation 2s infinite ease-in;
 }
@@ -195,8 +205,11 @@
 
 .game-result {
 	margin: 0 auto;
-	margin-top: 5.4375rem;
 	width: 100%;
+	position: absolute;
+	bottom: -50%;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .result-win-lose {
@@ -207,13 +220,13 @@
 .result-win-lose > p {
 	text-transform: uppercase;
 	color: white;
-	font-size: 30px;
+	font-size: 62px;
 	font-weight: 700;
 }
 
 .result-button-container {
 	margin: 0 auto;
-	margin-top: 26px;
+	margin-top: 10px;
 	margin-bottom: 51px;
 	display: flex;
 	align-items: center;
@@ -222,13 +235,13 @@
 
 .result-button-container > button {
 	text-transform: uppercase;
-	font-size: 18px;
-	font-weight: 500;
+	font-size: 21px;
+	font-weight: 600;
 	letter-spacing: 1px;
 	font-family: var(--font);
 	color: #1f3756;
 	width: 100%;
-	max-width: 220px;
+	max-width: 240px;
 	height: 48px;
 	background-color: white;
 	border: none;
