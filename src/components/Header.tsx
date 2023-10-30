@@ -8,7 +8,7 @@ export default function Header() {
 				<div className="game-logo-container">
 					<img className="game-logo" src={logo} alt="Rock Paper Scissors Logo" />
 				</div>
-				<Score count={1515} />
+				<Score count={2020} />
 			</div>
 		</header>
 	);
