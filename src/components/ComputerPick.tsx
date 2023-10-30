@@ -8,12 +8,8 @@ export interface PropTypes {
 }
 
 export default function ComputerPick({ isComputerPick }: PropTypes) {
-	if (!isComputerPick) {
-		return null;
-	}
-
-	const [isPlaceholder, setIsPlaceholder] = useState<boolean>(true);
-	const [isLoaded, setIsLoaded] = useState<boolean>(false);
+	const [isPlaceholder, setIsPlaceholder] = useState<boolean>(false);
+	const [computerPickDisplay, setComputerPickDisplay] = useState<boolean>(false);
 
 	let image = "";
 
@@ -55,16 +51,22 @@ export default function ComputerPick({ isComputerPick }: PropTypes) {
 	useEffect(() => {
 		if (isComputerPick) {
 			setTimeout(() => {
-				setIsLoaded(true);
-				setIsPlaceholder(false)
-			}, 3000);
+				setIsPlaceholder(true);
+			}, 200);
+			setTimeout(() => {
+				setComputerPickDisplay(true);
+				setIsPlaceholder(false);
+			}, 4000);
 		}
 	}, [isComputerPick]);
 
+	if (!isComputerPick) {
+		return <></>;
+	}
 	return (
 		<>
 			{isPlaceholder && content}
-			{isLoaded && loadedContent}
+			{computerPickDisplay && loadedContent}
 		</>
 	);
 }
