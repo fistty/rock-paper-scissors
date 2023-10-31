@@ -1,20 +1,31 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import paperIcon from "../assets/icon-paper.svg";
 import rockIcon from "../assets/icon-rock.svg";
 import scissorsIcon from "../assets/icon-scissors.svg";
 
 export interface PropTypes {
 	isComputerPick: boolean;
+	isPlaceholder: boolean;
+	setIsPlaceholder: React.Dispatch<React.SetStateAction<boolean>>;
+	computerPickDisplay: boolean;
+	setComputerPickDisplay: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function ComputerPick({ isComputerPick }: PropTypes) {
-	const [isPlaceholder, setIsPlaceholder] = useState<boolean>(false);
-	const [computerPickDisplay, setComputerPickDisplay] = useState<boolean>(false);
-
+export default function ComputerPick({
+	isComputerPick,
+	isPlaceholder,
+	setIsPlaceholder,
+	computerPickDisplay,
+	setComputerPickDisplay,
+}: PropTypes) {
 	let image = "";
 
 	const randomNumberGenerator = () => {
-		const randomNumber: number = Math.floor(Math.random() * 3);
+		const array = new Uint32Array(5);
+		window.crypto.getRandomValues(array);
+		// Generate a random number between 0 and 2 using modulo;
+		const randomNumber = array[0] % 3;
+
 		switch (randomNumber) {
 			case 0:
 				image = rockIcon;
@@ -25,7 +36,6 @@ export default function ComputerPick({ isComputerPick }: PropTypes) {
 			case 2:
 				image = scissorsIcon;
 				return "scissors-card";
-
 			default:
 				throw new Error("Error in Computer Pick");
 		}
@@ -56,7 +66,7 @@ export default function ComputerPick({ isComputerPick }: PropTypes) {
 			setTimeout(() => {
 				setComputerPickDisplay(true);
 				setIsPlaceholder(false);
-			}, 4000);
+			}, 2500);
 		}
 	}, [isComputerPick]);
 
