@@ -1,26 +1,21 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import paperIcon from "../assets/icon-paper.svg";
 import { PropTypes } from "../types";
 
-export default function Paper({ playerPick, setPlayerPick }: PropTypes) {
+export default function Paper({
+	playerPick,
+	setPlayerPick,
+	isParagraph,
+}: PropTypes) {
 	const paperRef = useRef<HTMLButtonElement>(null);
-
-	const [isParagraph, setIsParagraph] = useState(false);
 
 	const cardSelection = () => {
 		const cls = ["paper-card-transform", "picked-card"];
 		paperRef.current?.classList.add(...cls);
-		setPlayerPick("Paper");
-		console.log("Picked");
-	};
-
-	useEffect(() => {
-		if (playerPick !== "") {
-			setTimeout(() => {
-				setIsParagraph(true);
-			}, 500);
+		if (setPlayerPick) {
+			setPlayerPick("Paper");
 		}
-	}, [playerPick]);
+	};
 
 	return (
 		<button
