@@ -37,7 +37,7 @@ body {
 	background-size: 150% 150%;
 	background-image: radial-gradient(#1f3756, #141539);
 	color: white;
-	animation: AnimateBG 8s ease infinite;
+	animation: AnimateBG 7s ease infinite;
 }
 
 @keyframes AnimateBG {
