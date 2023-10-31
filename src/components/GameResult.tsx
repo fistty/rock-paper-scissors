@@ -3,6 +3,8 @@ export interface PropTypes {
 	gameComponentRef: React.MutableRefObject<HTMLElement | null>;
 	setPlayerPick: React.Dispatch<React.SetStateAction<string>>;
 	setIsComputerPick: React.Dispatch<React.SetStateAction<boolean>>;
+	setIsParagraph: React.Dispatch<React.SetStateAction<boolean>>;
+	setComputerPickDisplay: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function GameResult({
@@ -10,22 +12,33 @@ export default function GameResult({
 	gameComponentRef,
 	setPlayerPick,
 	setIsComputerPick,
+	setIsParagraph,
+	setComputerPickDisplay,
 }: PropTypes) {
 	const handlePlayAgain = () => {
-		const pickedCard: HTMLButtonElement | null =
-			document.querySelector(".picked-card");
-		setPlayerPick("");
-		setIsComputerPick(false);
+		const pickedCard = document.querySelector(".picked-card");
+
+		//Removes the play again button
 		setGameResultDisplay(false);
-		const cls = ["main-game-transform", "main-game-no-background"];
-		gameComponentRef.current?.classList.remove(...cls);
-		const cls2 = [
+
+		//Removes the class from the user picked card
+		const pickedCardClass = [
 			"rock-card-transform",
 			"paper-card-transform",
 			"scissors-card-transform",
 			"picked-card",
 		];
-		pickedCard?.classList.remove(...cls2);
+		pickedCard?.classList.remove(...pickedCardClass);
+
+		//Resets the UI to the beginning
+		setPlayerPick("");
+		setIsParagraph(false);
+
+		//Resets the computer state to the default
+		setIsComputerPick(false);
+		setComputerPickDisplay(false);
+		const gameComponentClass = ["main-game-transform", "main-game-no-background"];
+		gameComponentRef.current?.classList.remove(...gameComponentClass);
 	};
 	return (
 		<div className="game-result">
