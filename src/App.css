@@ -126,6 +126,7 @@ footer {
 #rules {
 	height: 100%;
 	background-color: white;
+	will-change: transform;
 }
 
 .rules-container {
