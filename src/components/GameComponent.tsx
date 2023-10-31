@@ -11,7 +11,7 @@ export default function GameComponent() {
 	const [isComputerPick, setIsComputerPick] = useState(false);
 	const [gameResultDisplay, setGameResultDisplay] = useState<boolean>(false);
 
-	const GameComponentRef = useRef<HTMLElement | null>(null);
+	const gameComponentRef = useRef<HTMLElement | null>(null);
 
 	const content = () => {
 		switch (playerPick) {
@@ -62,7 +62,7 @@ export default function GameComponent() {
 		if (playerPick !== "") {
 			setIsComputerPick(true);
 			setTimeout(() => {
-				GameComponentRef.current?.classList.add("main-game-transform");
+				gameComponentRef.current?.classList.add("main-game-transform");
 			}, 350);
 		}
 	}, [playerPick]);
@@ -80,11 +80,18 @@ export default function GameComponent() {
 			className={
 				playerPick === "" ? "main-game" : "main-game main-game-no-background"
 			}
-			ref={GameComponentRef}
+			ref={gameComponentRef}
 		>
 			{content()}
 			<ComputerPick isComputerPick={isComputerPick} />
-			{gameResultDisplay && <GameResult />}
+			{gameResultDisplay && (
+				<GameResult
+					setGameResultDisplay={setGameResultDisplay}
+					gameComponentRef={gameComponentRef}
+					setPlayerPick={setPlayerPick}
+					setIsComputerPick={setIsComputerPick}
+				/>
+			)}
 		</main>
 	);
 }
