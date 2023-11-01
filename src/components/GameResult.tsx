@@ -5,6 +5,7 @@ export interface PropTypes {
 	setIsComputerPick: React.Dispatch<React.SetStateAction<boolean>>;
 	setIsParagraph: React.Dispatch<React.SetStateAction<boolean>>;
 	setComputerPickDisplay: React.Dispatch<React.SetStateAction<boolean>>;
+	resultString: string;
 }
 
 export default function GameResult({
@@ -14,6 +15,7 @@ export default function GameResult({
 	setIsComputerPick,
 	setIsParagraph,
 	setComputerPickDisplay,
+	resultString,
 }: PropTypes) {
 	const handlePlayAgain = () => {
 		const pickedCard = document.querySelector(".picked-card");
@@ -41,36 +43,10 @@ export default function GameResult({
 		gameComponentRef.current?.classList.remove(...gameComponentClass);
 	};
 
-	// useEffect(() => {
-	// 	const winnerCalculator = (playerPick: string, computerPick: string) => {
-	// 		switch (playerPick) {
-	// 			case "Rock":
-	// 				if (computerPick === playerPick) console.log("DRAW") ;
-	// 				if (computerPick === "Scissors") console.log("YOU WIN ");
-	// 				if (computerPick === "Paper") console.log("YOU LOSE") ;
-	// 				break;
-	// 			case "Paper":
-	// 				if (computerPick === playerPick) console.log("DRAW") ;
-	// 				if (computerPick === "Rock") console.log("YOU WIB") ;
-	// 				if (computerPick === "Scissors") console.log("YOU LOSE") ;
-	// 				break;
-	// 			case "Scissors":
-	// 				if (computerPick === playerPick) console.log("DRAW") ;
-	// 				if (computerPick === "Paper") console.log("YOU WIN") ;
-	// 				if (computerPick === "Rock") console.log("YOU LOSE") ;
-	// 				break;
-
-	// 			default:
-	// 				break;
-	// 		}
-	// 	};
-
-	// 	winnerCalculator("playerPick", "Scissors");
-	// }, []);
 	return (
 		<div className="game-result">
 			<div className="result-win-lose">
-				<p>You win</p>
+				<p>{resultString}</p>
 			</div>
 			<div className="result-button-container">
 				<button className="result-button" onClick={handlePlayAgain}>
