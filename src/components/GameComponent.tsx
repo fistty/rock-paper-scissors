@@ -3,12 +3,16 @@ import Paper from "./Paper";
 import Rock from "./Rock";
 import Scissors from "./Scissors";
 import ComputerPick from "./ComputerPick";
-import "./game.css";
 import GameResult from "./GameResult";
+import { GameRules, winnerCalculator } from "../gameLogic";
+import "./game.css";
 
 export default function GameComponent() {
 	const [playerPick, setPlayerPick] = useState<string>("");
-	const [isComputerPick, setIsComputerPick] = useState(false);
+	const [isComputerPick, setIsComputerPick] = useState<boolean>(false);
+	const [computerPickString, setComputerPickString] = useState<
+		keyof GameRules | null
+	>(null);
 	const [gameResultDisplay, setGameResultDisplay] = useState<boolean>(false);
 	const [isParagraph, setIsParagraph] = useState<boolean>(false);
 	const [isPlaceholder, setIsPlaceholder] = useState<boolean>(false);
@@ -88,6 +92,14 @@ export default function GameComponent() {
 
 	useEffect(() => {
 		if (isComputerPick) {
+			let playerPickString = playerPick as keyof GameRules;
+
+			if (computerPickString !== null) {
+				console.log(playerPickString, "=>>>", computerPickString);
+
+				const result = winnerCalculator(playerPickString, computerPickString);
+				console.log(result);
+			}
 			setTimeout(() => {
 				setGameResultDisplay(true);
 			}, 2500);
@@ -104,6 +116,7 @@ export default function GameComponent() {
 			{content()}
 			<ComputerPick
 				isComputerPick={isComputerPick}
+				setComputerPickString={setComputerPickString}
 				isPlaceholder={isPlaceholder}
 				setIsPlaceholder={setIsPlaceholder}
 				computerPickDisplay={computerPickDisplay}
@@ -115,6 +128,7 @@ export default function GameComponent() {
 					gameComponentRef={gameComponentRef}
 					setPlayerPick={setPlayerPick}
 					setIsComputerPick={setIsComputerPick}
+					setComputerPickString={setComputerPickString}
 					setIsParagraph={setIsParagraph}
 					setComputerPickDisplay={setComputerPickDisplay}
 				/>
