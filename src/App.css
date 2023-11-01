@@ -25,7 +25,7 @@
 
 header {
 	width: 100%;
-	margin-top: 2rem;
+	padding-top: 2rem;
 }
 
 .header-container {
@@ -38,6 +38,7 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	margin: 0 auto;
+
 	padding-right: 0.75rem;
 	padding-left: 1.5625rem;
 }
@@ -90,7 +91,6 @@ footer {
 	max-width: 500px;
 	margin: 0 auto;
 	margin-bottom: 2rem;
-
 	margin-top: 10em;
 	display: flex;
 	align-items: center;
