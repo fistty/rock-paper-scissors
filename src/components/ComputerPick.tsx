@@ -1,10 +1,14 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import paperIcon from "../assets/icon-paper.svg";
 import rockIcon from "../assets/icon-rock.svg";
 import scissorsIcon from "../assets/icon-scissors.svg";
+import { GameRules } from "../gameLogic";
 
 export interface PropTypes {
 	isComputerPick: boolean;
+	setComputerPickString: React.Dispatch<
+		React.SetStateAction<keyof GameRules | null>
+	>;
 	isPlaceholder: boolean;
 	setIsPlaceholder: React.Dispatch<React.SetStateAction<boolean>>;
 	computerPickDisplay: boolean;
@@ -13,12 +17,14 @@ export interface PropTypes {
 
 export default function ComputerPick({
 	isComputerPick,
+	setComputerPickString,
 	isPlaceholder,
 	setIsPlaceholder,
 	computerPickDisplay,
 	setComputerPickDisplay,
 }: PropTypes) {
-	let image = "";
+	const [image, setImage] = useState<string>("");
+	const [computerPickClassName, setComputerPickClassName] = useState<string>("");
 
 	const randomNumberGenerator = () => {
 		const array = new Uint32Array(5);
@@ -28,14 +34,23 @@ export default function ComputerPick({
 
 		switch (randomNumber) {
 			case 0:
-				image = rockIcon;
-				return "rock-card";
+				setImage(rockIcon);
+				setComputerPickString("Rock");
+				setComputerPickClassName("rock-card");
+				break;
+
 			case 1:
-				image = paperIcon;
-				return "paper-card";
+				setImage(paperIcon);
+				setComputerPickString("Paper");
+				setComputerPickClassName("paper-card");
+				break;
+
 			case 2:
-				image = scissorsIcon;
-				return "scissors-card";
+				setImage(scissorsIcon);
+				setComputerPickString("Scissors");
+				setComputerPickClassName("scissors-card");
+				break;
+
 			default:
 				throw new Error("Error in Computer Pick");
 		}
@@ -49,7 +64,7 @@ export default function ComputerPick({
 	);
 
 	let loadedContent = (
-		<button className={`game-card computer-pick ${randomNumberGenerator()}`}>
+		<button className={`game-card computer-pick ${computerPickClassName}`}>
 			<div className="game-card-image-container">
 				<img src={image} alt="rock icon" />
 			</div>
@@ -57,6 +72,10 @@ export default function ComputerPick({
 			<span>The House picked</span>
 		</button>
 	);
+
+	useEffect(() => {
+		randomNumberGenerator();
+	}, [isComputerPick]);
 
 	useEffect(() => {
 		if (isComputerPick) {
@@ -70,13 +89,13 @@ export default function ComputerPick({
 		}
 	}, [isComputerPick]);
 
-	if (!isComputerPick) {
-		return <></>;
-	}
+	// if (!isComputerPick) {
+	// 	return <></>;
+	// }
 	return (
 		<>
 			{isPlaceholder && content}
-			{computerPickDisplay && loadedContent}
+			{loadedContent}
 		</>
 	);
 }
