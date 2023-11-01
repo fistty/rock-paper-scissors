@@ -21,10 +21,10 @@ export const winnerCalculator = (
 
 	if (gameRules[playerPick].beats === computerPick) {
 		// console.log("Win");
-		return "Win";
+		return "You Win";
 	}
 
 	// console.log("Lose");
 
-	return "Lose";
+	return "You Lose";
 };
