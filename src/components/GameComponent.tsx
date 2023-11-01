@@ -4,19 +4,16 @@ import Rock from "./Rock";
 import Scissors from "./Scissors";
 import ComputerPick from "./ComputerPick";
 import GameResult from "./GameResult";
-import { GameRules, winnerCalculator } from "../gameLogic";
 import "./game.css";
 
 export default function GameComponent() {
 	const [playerPick, setPlayerPick] = useState<string>("");
 	const [isComputerPick, setIsComputerPick] = useState<boolean>(false);
-	const [computerPickString, setComputerPickString] = useState<
-		keyof GameRules | ""
-	>("");
 	const [gameResultDisplay, setGameResultDisplay] = useState<boolean>(false);
 	const [isParagraph, setIsParagraph] = useState<boolean>(false);
 	const [isPlaceholder, setIsPlaceholder] = useState<boolean>(false);
 	const [computerPickDisplay, setComputerPickDisplay] = useState<boolean>(false);
+	const [resultString, setResultString] = useState<string>("");
 
 	const gameComponentRef = useRef<HTMLElement | null>(null);
 
@@ -92,15 +89,6 @@ export default function GameComponent() {
 
 	useEffect(() => {
 		if (isComputerPick) {
-			let playerPickString = playerPick as keyof GameRules;
-
-			if (computerPickString !== null) {
-				const result = winnerCalculator(playerPickString, computerPickString);
-				// console.log(playerPickString, "=>>>", computerPickString);
-				// console.log(result);
-			} else {
-				console.log("NO");
-			}
 			setTimeout(() => {
 				setGameResultDisplay(true);
 			}, 2500);
@@ -118,11 +106,11 @@ export default function GameComponent() {
 			<ComputerPick
 				playerPick={playerPick}
 				isComputerPick={isComputerPick}
-				setComputerPickString={setComputerPickString}
 				isPlaceholder={isPlaceholder}
 				setIsPlaceholder={setIsPlaceholder}
 				computerPickDisplay={computerPickDisplay}
 				setComputerPickDisplay={setComputerPickDisplay}
+				setResultString={setResultString}
 			/>
 			{gameResultDisplay && (
 				<GameResult
@@ -132,6 +120,7 @@ export default function GameComponent() {
 					setIsComputerPick={setIsComputerPick}
 					setIsParagraph={setIsParagraph}
 					setComputerPickDisplay={setComputerPickDisplay}
+					resultString={resultString}
 				/>
 			)}
 		</main>

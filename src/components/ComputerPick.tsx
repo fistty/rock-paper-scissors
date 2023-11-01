@@ -7,19 +7,17 @@ import { GameRules, winnerCalculator } from "../gameLogic";
 export interface PropTypes {
 	playerPick: string;
 	isComputerPick: boolean;
-	setComputerPickString: React.Dispatch<
-		React.SetStateAction<keyof GameRules | "">
-	>;
 	isPlaceholder: boolean;
 	setIsPlaceholder: React.Dispatch<React.SetStateAction<boolean>>;
 	computerPickDisplay: boolean;
 	setComputerPickDisplay: React.Dispatch<React.SetStateAction<boolean>>;
+	setResultString: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function ComputerPick({
 	playerPick,
+	setResultString,
 	isComputerPick,
-	setComputerPickString,
 	isPlaceholder,
 	setIsPlaceholder,
 	computerPickDisplay,
@@ -37,25 +35,18 @@ export default function ComputerPick({
 		switch (randomNumber) {
 			case 0:
 				setImage(rockIcon);
-				setComputerPickString("Rock");
 				setComputerPickClassName("rock-card");
 				return "Rock";
-				break;
 
 			case 1:
 				setImage(paperIcon);
-				setComputerPickString("Paper");
 				setComputerPickClassName("paper-card");
 				return "Paper";
 
-				break;
-
 			case 2:
 				setImage(scissorsIcon);
-				setComputerPickString("Scissors");
 				setComputerPickClassName("scissors-card");
 				return "Scissors";
-				break;
 
 			default:
 				throw new Error("Error in Computer Pick");
@@ -82,12 +73,15 @@ export default function ComputerPick({
 	useEffect(() => {
 		if (isComputerPick) {
 			const computerPickString = randomNumberGenerator();
+			// Winner Calculation
+
 			const result = winnerCalculator(
 				playerPick as keyof GameRules,
 				computerPickString
 			);
 			console.log(playerPick, "=>>>", computerPickString);
 			console.log(result);
+			setResultString(result);
 		}
 	}, [isComputerPick]);
 
