@@ -40,6 +40,33 @@ export default function GameResult({
 		const gameComponentClass = ["main-game-transform", "main-game-no-background"];
 		gameComponentRef.current?.classList.remove(...gameComponentClass);
 	};
+
+	// useEffect(() => {
+	// 	const winnerCalculator = (playerPick: string, computerPick: string) => {
+	// 		switch (playerPick) {
+	// 			case "Rock":
+	// 				if (computerPick === playerPick) console.log("DRAW") ;
+	// 				if (computerPick === "Scissors") console.log("YOU WIN ");
+	// 				if (computerPick === "Paper") console.log("YOU LOSE") ;
+	// 				break;
+	// 			case "Paper":
+	// 				if (computerPick === playerPick) console.log("DRAW") ;
+	// 				if (computerPick === "Rock") console.log("YOU WIB") ;
+	// 				if (computerPick === "Scissors") console.log("YOU LOSE") ;
+	// 				break;
+	// 			case "Scissors":
+	// 				if (computerPick === playerPick) console.log("DRAW") ;
+	// 				if (computerPick === "Paper") console.log("YOU WIN") ;
+	// 				if (computerPick === "Rock") console.log("YOU LOSE") ;
+	// 				break;
+
+	// 			default:
+	// 				break;
+	// 		}
+	// 	};
+
+	// 	winnerCalculator("playerPick", "Scissors");
+	// }, []);
 	return (
 		<div className="game-result">
 			<div className="result-win-lose">
