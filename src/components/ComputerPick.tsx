@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import paperIcon from "../assets/icon-paper.svg";
 import rockIcon from "../assets/icon-rock.svg";
 import scissorsIcon from "../assets/icon-scissors.svg";
-import { GameRules } from "../gameLogic";
+import { GameRules, winnerCalculator } from "../gameLogic";
 
 export interface PropTypes {
+	playerPick: string;
 	isComputerPick: boolean;
 	setComputerPickString: React.Dispatch<
-		React.SetStateAction<keyof GameRules | null>
+		React.SetStateAction<keyof GameRules | "">
 	>;
 	isPlaceholder: boolean;
 	setIsPlaceholder: React.Dispatch<React.SetStateAction<boolean>>;
@@ -16,6 +17,7 @@ export interface PropTypes {
 }
 
 export default function ComputerPick({
+	playerPick,
 	isComputerPick,
 	setComputerPickString,
 	isPlaceholder,
@@ -37,18 +39,22 @@ export default function ComputerPick({
 				setImage(rockIcon);
 				setComputerPickString("Rock");
 				setComputerPickClassName("rock-card");
+				return "Rock";
 				break;
 
 			case 1:
 				setImage(paperIcon);
 				setComputerPickString("Paper");
 				setComputerPickClassName("paper-card");
+				return "Paper";
+
 				break;
 
 			case 2:
 				setImage(scissorsIcon);
 				setComputerPickString("Scissors");
 				setComputerPickClassName("scissors-card");
+				return "Scissors";
 				break;
 
 			default:
@@ -66,7 +72,7 @@ export default function ComputerPick({
 	let loadedContent = (
 		<button className={`game-card computer-pick ${computerPickClassName}`}>
 			<div className="game-card-image-container">
-				<img src={image} alt="rock icon" />
+				<img src={image} alt="computer pick" />
 			</div>
 
 			<span>The House picked</span>
@@ -74,7 +80,15 @@ export default function ComputerPick({
 	);
 
 	useEffect(() => {
-		randomNumberGenerator();
+		if (isComputerPick) {
+			const computerPickString = randomNumberGenerator();
+			const result = winnerCalculator(
+				playerPick as keyof GameRules,
+				computerPickString
+			);
+			console.log(playerPick, "=>>>", computerPickString);
+			console.log(result);
+		}
 	}, [isComputerPick]);
 
 	useEffect(() => {
@@ -95,7 +109,8 @@ export default function ComputerPick({
 	return (
 		<>
 			{isPlaceholder && content}
-			{loadedContent}
+			{/* {loadedContent} */}
+			{computerPickDisplay && loadedContent}
 		</>
 	);
 }

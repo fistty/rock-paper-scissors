@@ -1,13 +1,8 @@
-import { GameRules } from "../gameLogic";
-
 export interface PropTypes {
 	setGameResultDisplay: React.Dispatch<React.SetStateAction<boolean>>;
 	gameComponentRef: React.MutableRefObject<HTMLElement | null>;
 	setPlayerPick: React.Dispatch<React.SetStateAction<string>>;
 	setIsComputerPick: React.Dispatch<React.SetStateAction<boolean>>;
-	setComputerPickString: React.Dispatch<
-		React.SetStateAction<keyof GameRules | null>
-	>;
 	setIsParagraph: React.Dispatch<React.SetStateAction<boolean>>;
 	setComputerPickDisplay: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -17,7 +12,6 @@ export default function GameResult({
 	gameComponentRef,
 	setPlayerPick,
 	setIsComputerPick,
-	setComputerPickString,
 	setIsParagraph,
 	setComputerPickDisplay,
 }: PropTypes) {
@@ -42,7 +36,6 @@ export default function GameResult({
 
 		//Resets the computer state to the default
 		setIsComputerPick(false);
-		setComputerPickString(null);
 		setComputerPickDisplay(false);
 		const gameComponentClass = ["main-game-transform", "main-game-no-background"];
 		gameComponentRef.current?.classList.remove(...gameComponentClass);

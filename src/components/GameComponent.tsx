@@ -11,8 +11,8 @@ export default function GameComponent() {
 	const [playerPick, setPlayerPick] = useState<string>("");
 	const [isComputerPick, setIsComputerPick] = useState<boolean>(false);
 	const [computerPickString, setComputerPickString] = useState<
-		keyof GameRules | null
-	>(null);
+		keyof GameRules | ""
+	>("");
 	const [gameResultDisplay, setGameResultDisplay] = useState<boolean>(false);
 	const [isParagraph, setIsParagraph] = useState<boolean>(false);
 	const [isPlaceholder, setIsPlaceholder] = useState<boolean>(false);
@@ -95,10 +95,11 @@ export default function GameComponent() {
 			let playerPickString = playerPick as keyof GameRules;
 
 			if (computerPickString !== null) {
-				console.log(playerPickString, "=>>>", computerPickString);
-
 				const result = winnerCalculator(playerPickString, computerPickString);
-				console.log(result);
+				// console.log(playerPickString, "=>>>", computerPickString);
+				// console.log(result);
+			} else {
+				console.log("NO");
 			}
 			setTimeout(() => {
 				setGameResultDisplay(true);
@@ -115,6 +116,7 @@ export default function GameComponent() {
 		>
 			{content()}
 			<ComputerPick
+				playerPick={playerPick}
 				isComputerPick={isComputerPick}
 				setComputerPickString={setComputerPickString}
 				isPlaceholder={isPlaceholder}
@@ -128,7 +130,6 @@ export default function GameComponent() {
 					gameComponentRef={gameComponentRef}
 					setPlayerPick={setPlayerPick}
 					setIsComputerPick={setIsComputerPick}
-					setComputerPickString={setComputerPickString}
 					setIsParagraph={setIsParagraph}
 					setComputerPickDisplay={setComputerPickDisplay}
 				/>
