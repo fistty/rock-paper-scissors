@@ -6,23 +6,27 @@
 	width: calc(100% - 60px);
 	max-width: 337px;
 	height: 282px;
-	/* border: 1px solid rgb(245, 243, 243); */
 	margin: 0 auto;
+	margin-top: 96px;
 	position: relative;
 	background-image: url("../assets//bg-triangle.svg");
 	background-position: center;
 	background-size: 77% 63%;
 	background-repeat: no-repeat;
+	transition: transform 150ms ease;
 }
 
 .main-game-no-background {
 	background: unset;
 }
 
+.main-game-transform {
+	transform: translateY(-5%);
+}
+
 /*-----------------------------------*\
      GAME CARD
 /*-----------------------------------*/
-
 .game-card {
 	width: 130px;
 	height: 130px;
@@ -81,19 +85,19 @@
 	left: 0%;
 	outline: none;
 	background-color: unset;
-	box-shadow: rgb(40 63 159) 1px 7px 2px 0px;
+	box-shadow: rgb(40 63 159) 1px 7px 0px 0px;
 }
 
 .scissors-card {
 	background-image: radial-gradient(rgb(236, 158, 14), rgb(236, 169, 34));
 	position: absolute;
 	top: 0%;
-	left: 62%;
+	left: 60%;
 	/* right: 0%; */
 	/* transform: translateX(159%); */
 	outline: none;
 	background-color: unset;
-	box-shadow: rgb(179 128 27) 1px 7px 2px 0px;
+	box-shadow: rgb(179 128 27) 1px 7px 0px 0px;
 }
 
 .scissors-card-transform {
@@ -108,7 +112,7 @@
 	transform: translateX(-50%);
 	outline: none;
 	background-color: unset;
-	box-shadow: rgb(174 47 68) 1px 7px 2px 0px;
+	box-shadow: rgb(174 47 68) 1px 7px 0px 0px;
 }
 
 .rock-card-transform {
@@ -125,10 +129,66 @@
 	transform: scale(1.2);
 }
 
+.picked-card {
+	position: relative;
+}
+
+.picked-card:hover {
+	transform: unset;
+}
+
 .computer-pick {
 	position: absolute;
-	left: 62%;
+	left: 60%;
 	top: 0%;
+}
+
+.computer-pick:hover {
+	transform: unset;
+}
+
+.picked-card > span,
+.computer-pick > span {
+	position: absolute;
+	bottom: -40px;
+	left: 50%;
+	transform: translateX(-50%);
+	color: white;
+	text-transform: uppercase;
+	width: 180px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 600;
+	font-family: var(--font);
+	font-size: 16px;
+	letter-spacing: 1.5px;
+}
+
+.computer-pick-placeholder {
+	position: absolute;
+	top: 4%;
+	left: 63.1%;
+	width: 6.875rem;
+	height: 6.875rem;
+	background-color: #0f182a;
+	border-radius: 50%;
+	box-shadow: 0px 0px 0px 1px #0000001a;
+	animation: pulse-animation 2s infinite ease-in;
+}
+
+@keyframes pulse-animation {
+	0% {
+		transform: scale(1.1);
+		box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1.1);
+		box-shadow: 0 0 0 30px rgba(0, 0, 0, 0);
+	}
 }
 
 .computer-pick.rock-card {
@@ -137,6 +197,67 @@
 
 .computer-pick.rock-card:hover {
 	transform: translateX(0%);
+}
+
+/*-----------------------------------*\
+		 GAME RESULT
+/*-----------------------------------*/
+
+.game-result {
+	margin: 0 auto;
+	width: 100%;
+	position: absolute;
+	bottom: -50%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.result-win-lose {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.result-win-lose > p {
+	text-transform: uppercase;
+	color: white;
+	font-size: 62px;
+	font-weight: 700;
+}
+
+.result-button-container {
+	margin: 0 auto;
+	margin-top: 10px;
+	margin-bottom: 51px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.result-button {
+	text-transform: uppercase;
+	font-size: 21px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	font-family: var(--font);
+	color: #1f3756;
+	width: 100%;
+	max-width: 240px;
+	height: 48px;
+	background-color: white;
+	border: none;
+	border-radius: 8px;
+	outline: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: #00000070 3px 3px 10px 2px;
+	transition: box-shadow 150ms ease, color 150ms ease;
+	cursor: pointer;
+}
+
+.result-button:hover {
+	box-shadow: #00000070 3px 3px 10px 6px;
+	color: rgb(232 67 101);
 }
 
 @media screen and (max-width: 1100px) {

@@ -1,39 +1,33 @@
-import { useEffect, useState } from "react";
+import { useRef } from "react";
 import paperIcon from "../assets/icon-paper.svg";
+import { PropTypes } from "../types";
 
-export interface PropTypes {
-	playerPick: string;
-	setPlayerPick: React.Dispatch<React.SetStateAction<string>>;
-}
+export default function Paper({
+	playerPick,
+	setPlayerPick,
+	isParagraph,
+}: PropTypes) {
+	const paperRef = useRef<HTMLButtonElement>(null);
 
-export default function Paper({ playerPick, setPlayerPick }: PropTypes) {
-	const [isParagraph, setIsParagraph] = useState(false);
 	const cardSelection = () => {
-		setPlayerPick("Paper");
-		console.log("Picked");
+		const cls = ["paper-card-transform", "picked-card"];
+		paperRef.current?.classList.add(...cls);
+		if (setPlayerPick) {
+			setPlayerPick("Paper");
+		}
 	};
 
-	useEffect(() => {
-		if (playerPick) {
-			const setParagraph = (playerPick: string) => {
-				if (playerPick !== "") {
-					console.log(897782);
-
-					setTimeout(() => {
-						setIsParagraph(true);
-					}, 100);
-				} else return false;
-			};
-			setParagraph(playerPick);
-		}
-	}, [isParagraph, playerPick]);
-
 	return (
-		<button className="game-card paper-card" onClick={cardSelection}>
+		<button
+			className="game-card paper-card"
+			disabled={playerPick === "" ? false : true}
+			onClick={cardSelection}
+			ref={paperRef}
+		>
 			<div className="game-card-image-container">
 				<img src={paperIcon} alt="paper icon" />
 			</div>
-			{isParagraph && <span>You picked THIS</span>}
+			{isParagraph && <span>You picked </span>}
 		</button>
 	);
 }

@@ -6,15 +6,26 @@
 .app {
 	max-width: 900rem;
 	min-height: 100vh;
-	display: flex;
+	/* display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-between; */
 	position: relative;
+}
+
+@media screen and (min-height: 800px) {
+	.app {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	footer {
+		margin-bottom: 2rem;
+	}
 }
 
 header {
 	width: 100%;
-	margin-top: 2rem;
+	padding-top: 2rem;
 }
 
 .header-container {
@@ -27,6 +38,7 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	margin: 0 auto;
+
 	padding-right: 0.75rem;
 	padding-left: 1.5625rem;
 }
@@ -78,7 +90,8 @@ footer {
 	width: calc(100% - 30px);
 	max-width: 500px;
 	margin: 0 auto;
-	margin-bottom: 51px;
+	margin-bottom: 2rem;
+	margin-top: 10em;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -113,6 +126,7 @@ footer {
 #rules {
 	height: 100%;
 	background-color: white;
+	will-change: transform;
 }
 
 .rules-container {

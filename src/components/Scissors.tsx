@@ -1,16 +1,20 @@
 import { useEffect, useRef } from "react";
 import scissorsIcon from "../assets/icon-scissors.svg";
+import { PropTypes } from "../types";
 
-export interface PropTypes {
-	playerPick: string;
-	setPlayerPick: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export default function Scissors({ setPlayerPick }: PropTypes) {
+export default function Scissors({
+	playerPick,
+	setPlayerPick,
+	isParagraph,
+}: PropTypes) {
 	const scissorsRef = useRef<HTMLButtonElement>(null);
+
 	const cardSelection = () => {
-		scissorsRef.current?.classList.toggle("scissors-card-transform");
-		setPlayerPick("Scissors");
+		const cls = ["scissors-card-transform", "picked-card"];
+		scissorsRef.current?.classList.add(...cls);
+		if (setPlayerPick) {
+			setPlayerPick("Scissors");
+		}
 	};
 
 	useEffect(() => {
@@ -20,12 +24,14 @@ export default function Scissors({ setPlayerPick }: PropTypes) {
 	return (
 		<button
 			className="game-card scissors-card"
+			disabled={playerPick === "" ? false : true}
 			onClick={cardSelection}
 			ref={scissorsRef}
 		>
 			<div className="game-card-image-container">
 				<img src={scissorsIcon} alt="scissors icon" />
 			</div>
+			{isParagraph && <span>You picked </span>}
 		</button>
 	);
 }

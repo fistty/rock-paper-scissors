@@ -1,42 +1,110 @@
+import { useState, useEffect } from "react";
 import paperIcon from "../assets/icon-paper.svg";
 import rockIcon from "../assets/icon-rock.svg";
 import scissorsIcon from "../assets/icon-scissors.svg";
+import { GameRules, winnerCalculator } from "../gameLogic";
 
 export interface PropTypes {
+	playerPick: string;
 	isComputerPick: boolean;
+	isPlaceholder: boolean;
+	setIsPlaceholder: React.Dispatch<React.SetStateAction<boolean>>;
+	computerPickDisplay: boolean;
+	setComputerPickDisplay: React.Dispatch<React.SetStateAction<boolean>>;
+	setResultString: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function ComputerPick({ isComputerPick }: PropTypes) {
-	if (!isComputerPick) {
-		return null;
-	}
-
-	let image = "";
+export default function ComputerPick({
+	playerPick,
+	setResultString,
+	isComputerPick,
+	isPlaceholder,
+	setIsPlaceholder,
+	computerPickDisplay,
+	setComputerPickDisplay,
+}: PropTypes) {
+	const [image, setImage] = useState<string>("");
+	const [computerPickClassName, setComputerPickClassName] = useState<string>("");
 
 	const randomNumberGenerator = () => {
-		const randomNumber: number = Math.floor(Math.random() * 3);
-		console.log(randomNumber);
+		const array = new Uint32Array(5);
+		window.crypto.getRandomValues(array);
+		// Generate a random number between 0 and 2 using modulo;
+		const randomNumber = array[0] % 3;
+
 		switch (randomNumber) {
 			case 0:
-				image = rockIcon;
-				return "rock-card";
+				setImage(rockIcon);
+				setComputerPickClassName("rock-card");
+				return "Rock";
+
 			case 1:
-				image = paperIcon;
-				return "paper-card";
+				setImage(paperIcon);
+				setComputerPickClassName("paper-card");
+				return "Paper";
+
 			case 2:
-				image = scissorsIcon;
-				return "scissors-card";
+				setImage(scissorsIcon);
+				setComputerPickClassName("scissors-card");
+				return "Scissors";
 
 			default:
-				break;
+				throw new Error("Error in Computer Pick");
 		}
 	};
 
-	return (
-		<button className={`game-card computer-pick ${randomNumberGenerator()}`}>
+	let content = (
+		<button
+			disabled
+			className="game-card computer-pick computer-pick-placeholder"
+		></button>
+	);
+
+	let loadedContent = (
+		<button className={`game-card computer-pick ${computerPickClassName}`}>
 			<div className="game-card-image-container">
-				<img src={image} alt="rock icon" />
+				<img src={image} alt="computer pick" />
 			</div>
+
+			<span>The House picked</span>
 		</button>
+	);
+
+	useEffect(() => {
+		if (isComputerPick) {
+			const computerPickString = randomNumberGenerator();
+			// Winner Calculation
+
+			const result = winnerCalculator(
+				playerPick as keyof GameRules,
+				computerPickString
+			);
+			console.log(playerPick, "=>>>", computerPickString);
+			console.log(result);
+			setResultString(result);
+		}
+	}, [isComputerPick]);
+
+	useEffect(() => {
+		if (isComputerPick) {
+			setTimeout(() => {
+				setIsPlaceholder(true);
+			}, 700);
+			setTimeout(() => {
+				setComputerPickDisplay(true);
+				setIsPlaceholder(false);
+			}, 2500);
+		}
+	}, [isComputerPick]);
+
+	// if (!isComputerPick) {
+	// 	return <></>;
+	// }
+	return (
+		<>
+			{isPlaceholder && content}
+			{/* {loadedContent} */}
+			{computerPickDisplay && loadedContent}
+		</>
 	);
 }
