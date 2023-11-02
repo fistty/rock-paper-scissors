@@ -97,9 +97,9 @@ export default function ComputerPick({
 		}
 	}, [isComputerPick]);
 
-	// if (!isComputerPick) {
-	// 	return <></>;
-	// }
+	if (!isComputerPick) {
+		return <></>;
+	}
 	return (
 		<>
 			{isPlaceholder && content}
