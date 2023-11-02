@@ -9,18 +9,27 @@ import {
 type GameContextType = {
 	gameScore: number;
 	setGameScore: (value: number) => void;
+	playerPick: boolean;
+	setPlayerPick: (value: boolean) => void;
+	playerPickString: string;
+	setPlayerPickString: (value: string) => void;
+
 	computerPick: boolean;
 	setComputerPick: (value: boolean) => void;
 };
 
-const initialGameContext: GameContextType = {
+export const initialGameContext: GameContextType = {
 	gameScore: 0,
 	setGameScore: () => {},
+	playerPick: false,
+	setPlayerPick: () => {},
+	playerPickString: "",
+	setPlayerPickString: () => {},
 	computerPick: false,
 	setComputerPick: () => {},
 };
 
-const GameContext = createContext(initialGameContext);
+export const GameContext = createContext(initialGameContext);
 
 type ChildrenType = { children?: ReactElement | ReactElement[] };
 
@@ -41,6 +50,10 @@ export function GameContextProvider({ children }: ChildrenType) {
 			value={{
 				gameScore,
 				setGameScore,
+				playerPick,
+				setPlayerPick,
+				playerPickString,
+				setPlayerPickString,
 				computerPick,
 				setComputerPick,
 			}}
@@ -49,9 +62,3 @@ export function GameContextProvider({ children }: ChildrenType) {
 		</GameContext.Provider>
 	);
 }
-
-export const useGameContext = () => {
-	return useContext(GameContext);
-};
-
-export default GameContext;
