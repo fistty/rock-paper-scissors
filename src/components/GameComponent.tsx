@@ -19,7 +19,6 @@ export default function GameComponent() {
 	const gameComponentRef = useRef<HTMLElement | null>(null);
 
 	const content = () => {
-
 		switch (playerPickString) {
 			case "Rock":
 				return (
@@ -75,7 +74,7 @@ export default function GameComponent() {
 		if (computerPick) {
 			setTimeout(() => {
 				setGameResultDisplay(true);
-			}, 2500);
+			}, 2000);
 		}
 	}, [computerPick]);
 

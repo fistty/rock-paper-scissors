@@ -84,7 +84,7 @@ export default function ComputerPick({
 				setIsCalculateWinner(true);
 				setIsPlaceholder(false);
 				setComputerPickDisplay(true);
-			}, 2700); // To change 2500 to 2700?
+			}, 2000);
 		}
 	}, [computerPick]);
 
