@@ -9,7 +9,7 @@ export default function Footer({ setIsRulesVisible }: PropsType) {
 		setIsRulesVisible(true);
 	};
 
-	const { playerPick, setGameScore, scoreReset } = useGameContext();
+	const { playerPick, setGameScore, isActiveFooterButtons } = useGameContext();
 
 	const handleScoreReset = () => {
 		setGameScore(0);
@@ -20,7 +20,7 @@ export default function Footer({ setIsRulesVisible }: PropsType) {
 		<footer>
 			<button
 				className="footer-button new-game-button"
-				disabled={scoreReset === true ? true : false}
+				disabled={isActiveFooterButtons ? false : true}
 				onClick={handleScoreReset}
 			>
 				Reset Score

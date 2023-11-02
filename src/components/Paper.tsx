@@ -6,11 +6,15 @@ import paperIcon from "../assets/icon-paper.svg";
 export default function Paper({ isParagraph }: GameCardPropTypes) {
 	const paperRef = useRef<HTMLButtonElement>(null);
 
-	const { playerPick, setPlayerPick, setPlayerPickString, setScoreReset } =
-		useGameContext();
+	const {
+		playerPick,
+		setPlayerPick,
+		setPlayerPickString,
+		setIsActiveFooterButtons,
+	} = useGameContext();
 
 	const cardSelection = () => {
-		setScoreReset(false);
+		setIsActiveFooterButtons(false);
 		setPlayerPick(true);
 		setPlayerPickString("Paper");
 

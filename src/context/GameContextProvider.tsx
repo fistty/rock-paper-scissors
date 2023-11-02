@@ -12,7 +12,8 @@ export function GameContextProvider({ children }: ChildrenType) {
 	const [computerPickString, setComputerPickString] = useState<string>("");
 	const [isCalculateWinner, setIsCalculateWinner] = useState<boolean>(false);
 	const [resultString, setResultString] = useState<string>("");
-	const [scoreReset, setScoreReset] = useState<boolean>(true);
+	const [isActiveFooterButtons, setIsActiveFooterButtons] =
+		useState<boolean>(true);
 
 	const handleScoreSave = (score: number) => {
 		const scoreToString = score.toString();
@@ -58,6 +59,7 @@ export function GameContextProvider({ children }: ChildrenType) {
 					alert("Result not valid");
 					throw new Error("Result not valid");
 			}
+			setIsActiveFooterButtons(true);
 		}
 	}, [isCalculateWinner]);
 
@@ -78,8 +80,8 @@ export function GameContextProvider({ children }: ChildrenType) {
 				setIsCalculateWinner,
 				resultString,
 				setResultString,
-				scoreReset,
-				setScoreReset,
+				isActiveFooterButtons,
+				setIsActiveFooterButtons,
 			}}
 		>
 			{children}

@@ -21,6 +21,7 @@ export default function GameResult({
 		setIsCalculateWinner,
 		resultString,
 		setResultString,
+		setIsActiveFooterButtons,
 	} = useGameContext();
 
 	const handlePlayAgain = () => {
@@ -46,6 +47,7 @@ export default function GameResult({
 		setPlayerPickString("");
 		setIsParagraph(false);
 		setResultString("");
+		setIsActiveFooterButtons(true);
 
 		//Resets the computer pick state to the default
 		setComputerPick(false);
