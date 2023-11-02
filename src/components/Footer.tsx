@@ -6,7 +6,6 @@ type PropsType = {
 export default function Footer({ setIsRulesVisible }: PropsType) {
 	const openRulesModal = () => {
 		console.log("Clickable");
-
 		setIsRulesVisible(true);
 	};
 
@@ -21,7 +20,7 @@ export default function Footer({ setIsRulesVisible }: PropsType) {
 		<footer>
 			<button
 				className="footer-button new-game-button"
-				disabled={scoreReset ? false : false}
+				disabled={scoreReset === true ? true : false}
 				onClick={handleScoreReset}
 			>
 				Reset Score

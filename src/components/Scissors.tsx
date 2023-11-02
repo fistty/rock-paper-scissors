@@ -10,9 +10,9 @@ export default function Scissors({ isParagraph }: GameCardPropTypes) {
 		useGameContext();
 
 	const cardSelection = () => {
+		setScoreReset(false);
 		setPlayerPick(true);
 		setPlayerPickString("Scissors");
-		setScoreReset(false);
 
 		const cls = ["scissors-card-transform", "picked-card"];
 		scissorsRef.current?.classList.add(...cls);

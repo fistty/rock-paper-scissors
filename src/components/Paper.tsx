@@ -10,9 +10,9 @@ export default function Paper({ isParagraph }: GameCardPropTypes) {
 		useGameContext();
 
 	const cardSelection = () => {
+		setScoreReset(false);
 		setPlayerPick(true);
 		setPlayerPickString("Paper");
-		setScoreReset(false);
 
 		const cls = ["paper-card-transform", "picked-card"];
 		paperRef.current?.classList.add(...cls);

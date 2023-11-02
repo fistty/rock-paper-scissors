@@ -10,9 +10,9 @@ export default function Rock({ isParagraph }: GameCardPropTypes) {
 		useGameContext();
 
 	const cardSelection = () => {
+		setScoreReset(false);
 		setPlayerPick(true);
 		setPlayerPickString("Rock");
-		setScoreReset(false);
 
 		const cls = ["rock-card-transform", "picked-card"];
 		rockRef.current?.classList.add(...cls);
