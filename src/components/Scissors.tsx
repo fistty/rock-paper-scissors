@@ -6,11 +6,13 @@ import scissorsIcon from "../assets/icon-scissors.svg";
 export default function Scissors({ isParagraph }: GameCardPropTypes) {
 	const scissorsRef = useRef<HTMLButtonElement>(null);
 
-	const { playerPick, setPlayerPick, setPlayerPickString } = useGameContext();
+	const { playerPick, setPlayerPick, setPlayerPickString, setScoreReset } =
+		useGameContext();
 
 	const cardSelection = () => {
 		setPlayerPick(true);
 		setPlayerPickString("Scissors");
+		setScoreReset(false);
 
 		const cls = ["scissors-card-transform", "picked-card"];
 		scissorsRef.current?.classList.add(...cls);

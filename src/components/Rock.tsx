@@ -6,11 +6,14 @@ import rockIcon from "../assets/icon-rock.svg";
 export default function Rock({ isParagraph }: GameCardPropTypes) {
 	const rockRef = useRef<HTMLButtonElement>(null);
 
-	const { playerPick, setPlayerPick, setPlayerPickString } = useGameContext();
+	const { playerPick, setPlayerPick, setPlayerPickString, setScoreReset } =
+		useGameContext();
 
 	const cardSelection = () => {
 		setPlayerPick(true);
 		setPlayerPickString("Rock");
+		setScoreReset(false);
+
 		const cls = ["rock-card-transform", "picked-card"];
 		rockRef.current?.classList.add(...cls);
 	};
