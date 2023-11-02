@@ -1,35 +1,6 @@
-import {
-	useState,
-	useEffect,
-	createContext,
-	useContext,
-	ReactElement,
-} from "react";
-
-type GameContextType = {
-	gameScore: number;
-	setGameScore: (value: number) => void;
-	playerPick: boolean;
-	setPlayerPick: (value: boolean) => void;
-	playerPickString: string;
-	setPlayerPickString: (value: string) => void;
-
-	computerPick: boolean;
-	setComputerPick: (value: boolean) => void;
-};
-
-export const initialGameContext: GameContextType = {
-	gameScore: 0,
-	setGameScore: () => {},
-	playerPick: false,
-	setPlayerPick: () => {},
-	playerPickString: "",
-	setPlayerPickString: () => {},
-	computerPick: false,
-	setComputerPick: () => {},
-};
-
-export const GameContext = createContext(initialGameContext);
+import { useState, useEffect, createContext, ReactElement } from "react";
+import { GameRules, winnerCalculator } from "../gameLogic";
+import { GameContext } from "./GameContext";
 
 type ChildrenType = { children?: ReactElement | ReactElement[] };
 
@@ -39,11 +10,18 @@ export function GameContextProvider({ children }: ChildrenType) {
 	const [playerPickString, setPlayerPickString] = useState("");
 	const [computerPick, setComputerPick] = useState(false);
 	const [computerPickString, setComputerPickString] = useState("");
+	const [isCalculateWinner, setIsCalculateWinner] = useState(false);
 
 	useEffect(() => {
 		const score: string = localStorage.getItem("score") || "0";
 		setGameScore(parseInt(score));
 	}, []);
+
+	useEffect(() => {
+		if (isCalculateWinner) {
+			winnerCalculator(playerPickString as keyof GameRules, computerPickString);
+		}
+	}, [isCalculateWinner]);
 
 	return (
 		<GameContext.Provider
@@ -56,6 +34,10 @@ export function GameContextProvider({ children }: ChildrenType) {
 				setPlayerPickString,
 				computerPick,
 				setComputerPick,
+				computerPickString,
+				setComputerPickString,
+				isCalculateWinner,
+				setIsCalculateWinner,
 			}}
 		>
 			{children}
