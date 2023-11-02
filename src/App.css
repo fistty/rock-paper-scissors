@@ -115,6 +115,16 @@ footer {
 	transition: all 200ms ease;
 }
 
+.footer-button:disabled {
+	cursor: not-allowed;
+	border: 2px solid #ffffffbe;
+}
+
+.footer-button:disabled:hover {
+	background-color: unset;
+	color: unset;
+}
+
 .footer-button:hover {
 	background-color: #ffffffbe;
 	color: #141539;
