@@ -13,9 +13,10 @@ type GameContextType = {
 	setComputerPickString: React.Dispatch<React.SetStateAction<string>>;
 	isCalculateWinner: boolean;
 	setIsCalculateWinner: React.Dispatch<React.SetStateAction<boolean>>;
-
 	resultString: string;
 	setResultString: React.Dispatch<React.SetStateAction<string>>;
+	scoreReset: boolean;
+	setScoreReset: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const initialGameContext: GameContextType = {
@@ -33,6 +34,8 @@ const initialGameContext: GameContextType = {
 	setIsCalculateWinner: () => {},
 	resultString: "",
 	setResultString: () => {},
+	scoreReset: true,
+	setScoreReset: () => {},
 };
 
 export const GameContext = createContext(initialGameContext);
