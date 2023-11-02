@@ -5,18 +5,14 @@ import scissorsIcon from "../assets/icon-scissors.svg";
 import { GameRules, winnerCalculator } from "../gameLogic";
 
 export interface PropTypes {
-	playerPick: string;
 	isComputerPick: boolean;
 	isPlaceholder: boolean;
 	setIsPlaceholder: React.Dispatch<React.SetStateAction<boolean>>;
 	computerPickDisplay: boolean;
 	setComputerPickDisplay: React.Dispatch<React.SetStateAction<boolean>>;
-	setResultString: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function ComputerPick({
-	playerPick,
-	setResultString,
 	isComputerPick,
 	isPlaceholder,
 	setIsPlaceholder,
@@ -75,13 +71,13 @@ export default function ComputerPick({
 			const computerPickString = randomNumberGenerator();
 			// Winner Calculation
 
-			const result = winnerCalculator(
-				playerPick as keyof GameRules,
-				computerPickString
-			);
-			console.log(playerPick, "=>>>", computerPickString);
-			console.log(result);
-			setResultString(result);
+			// 	const result = winnerCalculator(
+			// 		playerPick as keyof GameRules,
+			// 		computerPickString
+			// 	);
+			// 	// console.log(playerPick, "=>>>", computerPickString);
+			// 	// console.log(result);
+			// 	setResultString(result);
 		}
 	}, [isComputerPick]);
 

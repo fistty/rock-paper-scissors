@@ -5,9 +5,9 @@ import Scissors from "./Scissors";
 import ComputerPick from "./ComputerPick";
 import GameResult from "./GameResult";
 import "./game.css";
+import { useGameContext } from "../hooks/useGameContext";
 
 export default function GameComponent() {
-	const [playerPick, setPlayerPick] = useState<string>("");
 	const [isComputerPick, setIsComputerPick] = useState<boolean>(false);
 	const [gameResultDisplay, setGameResultDisplay] = useState<boolean>(false);
 	const [isParagraph, setIsParagraph] = useState<boolean>(false);
@@ -15,67 +15,53 @@ export default function GameComponent() {
 	const [computerPickDisplay, setComputerPickDisplay] = useState<boolean>(false);
 	const [resultString, setResultString] = useState<string>("");
 
+	const { playerPick, setPlayerPick, playerPickString } = useGameContext();
+
 	const gameComponentRef = useRef<HTMLElement | null>(null);
 
 	const content = () => {
-		switch (playerPick) {
+		console.log(playerPickString);
+
+		switch (playerPickString) {
 			case "Rock":
 				return (
 					<>
+						{true && <Rock isParagraph={isParagraph} />}
 						{false && <Paper />}
 						{false && <Scissors />}
-						{true && (
-							<Rock
-								playerPick={playerPick}
-								setPlayerPick={setPlayerPick}
-								isParagraph={isParagraph}
-							/>
-						)}
 					</>
 				);
 
 			case "Paper":
 				return (
 					<>
-						{true && (
-							<Paper
-								playerPick={playerPick}
-								setPlayerPick={setPlayerPick}
-								isParagraph={isParagraph}
-							/>
-						)}
-						{false && <Scissors />}
 						{false && <Rock />}
+						{true && <Paper isParagraph={isParagraph} />}
+						{false && <Scissors />}
 					</>
 				);
 
 			case "Scissors":
 				return (
 					<>
-						{false && <Paper />}
-						{true && (
-							<Scissors
-								playerPick={playerPick}
-								setPlayerPick={setPlayerPick}
-								isParagraph={isParagraph}
-							/>
-						)}
 						{false && <Rock />}
+						{false && <Paper />}
+						{true && <Scissors isParagraph={isParagraph} />}
 					</>
 				);
 			default:
 				return (
 					<>
-						{<Paper playerPick={playerPick} setPlayerPick={setPlayerPick} />}
-						{<Scissors playerPick={playerPick} setPlayerPick={setPlayerPick} />}
-						{<Rock playerPick={playerPick} setPlayerPick={setPlayerPick} />}
+						{<Rock />}
+						{<Paper />}
+						{<Scissors />}
 					</>
 				);
 		}
 	};
 
 	useEffect(() => {
-		if (playerPick !== "") {
+		if (playerPick) {
 			setIsComputerPick(true);
 			setTimeout(() => {
 				gameComponentRef.current?.classList.add("main-game-transform");
@@ -97,26 +83,21 @@ export default function GameComponent() {
 
 	return (
 		<main
-			className={
-				playerPick === "" ? "main-game" : "main-game main-game-no-background"
-			}
+			className={!playerPick ? "main-game" : "main-game main-game-no-background"}
 			ref={gameComponentRef}
 		>
 			{content()}
 			<ComputerPick
-				playerPick={playerPick}
 				isComputerPick={isComputerPick}
 				isPlaceholder={isPlaceholder}
 				setIsPlaceholder={setIsPlaceholder}
 				computerPickDisplay={computerPickDisplay}
 				setComputerPickDisplay={setComputerPickDisplay}
-				setResultString={setResultString}
 			/>
 			{gameResultDisplay && (
 				<GameResult
 					setGameResultDisplay={setGameResultDisplay}
 					gameComponentRef={gameComponentRef}
-					setPlayerPick={setPlayerPick}
 					setIsComputerPick={setIsComputerPick}
 					setIsParagraph={setIsParagraph}
 					setComputerPickDisplay={setComputerPickDisplay}

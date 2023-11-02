@@ -1,7 +1,8 @@
+import { useGameContext } from "../hooks/useGameContext";
+
 export interface PropTypes {
 	setGameResultDisplay: React.Dispatch<React.SetStateAction<boolean>>;
 	gameComponentRef: React.MutableRefObject<HTMLElement | null>;
-	setPlayerPick: React.Dispatch<React.SetStateAction<string>>;
 	setIsComputerPick: React.Dispatch<React.SetStateAction<boolean>>;
 	setIsParagraph: React.Dispatch<React.SetStateAction<boolean>>;
 	setComputerPickDisplay: React.Dispatch<React.SetStateAction<boolean>>;
@@ -11,13 +12,18 @@ export interface PropTypes {
 export default function GameResult({
 	setGameResultDisplay,
 	gameComponentRef,
-	setPlayerPick,
 	setIsComputerPick,
 	setIsParagraph,
 	setComputerPickDisplay,
 	resultString,
 }: PropTypes) {
+	const { playerPick, setPlayerPick, setPlayerPickString } = useGameContext();
+
 	const handlePlayAgain = () => {
+		console.log(playerPick);
+
+		setPlayerPick(false);
+
 		const pickedCard = document.querySelector(".picked-card");
 
 		//Removes the play again button
@@ -30,10 +36,11 @@ export default function GameResult({
 			"scissors-card-transform",
 			"picked-card",
 		];
+
 		pickedCard?.classList.remove(...pickedCardClass);
 
 		//Resets the UI to the beginning
-		setPlayerPick("");
+		setPlayerPickString("");
 		setIsParagraph(false);
 
 		//Resets the computer state to the default
