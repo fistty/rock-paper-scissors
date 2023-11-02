@@ -26,7 +26,10 @@ type ChildrenType = { children?: ReactElement | ReactElement[] };
 
 export function GameContextProvider({ children }: ChildrenType) {
 	const [gameScore, setGameScore] = useState<number>(0);
+	const [playerPick, setPlayerPick] = useState(false);
+	const [playerPickString, setPlayerPickString] = useState("");
 	const [computerPick, setComputerPick] = useState(false);
+	const [computerPickString, setComputerPickString] = useState("");
 
 	useEffect(() => {
 		const score: string = localStorage.getItem("score") || "0";
