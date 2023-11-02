@@ -6,8 +6,8 @@ import { GameContextProvider } from "./context/GameContextProvider.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<GameContextProvider>
-		{/* <React.StrictMode> */}
-		<App />
-		{/* </React.StrictMode> */}
+		<React.StrictMode>
+			<App />
+		</React.StrictMode>
 	</GameContextProvider>
 );
