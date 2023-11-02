@@ -12,6 +12,12 @@ export function GameContextProvider({ children }: ChildrenType) {
 	const [computerPickString, setComputerPickString] = useState<string>("");
 	const [isCalculateWinner, setIsCalculateWinner] = useState<boolean>(false);
 	const [resultString, setResultString] = useState<string>("");
+	const [scoreReset, setScoreReset] = useState<boolean>(true);
+
+	const handleScoreSave = (score: number) => {
+		const scoreToString = score.toString();
+		localStorage.setItem("score", scoreToString);
+	};
 
 	useEffect(() => {
 		const score: string = localStorage.getItem("score") || "0";
@@ -27,15 +33,25 @@ export function GameContextProvider({ children }: ChildrenType) {
 
 			switch (result) {
 				case "Win":
-					setGameScore((prev) => prev + 1);
+					setGameScore((prev) => {
+						const temp = prev + 1;
+						// Saves the score to the localStorage
+						handleScoreSave(temp);
+						return temp;
+					});
 					setResultString("You win");
 					break;
 				case "Lose":
-					setGameScore((prev) => prev - 1);
+					setGameScore((prev) => {
+						const temp = prev - 1;
+						// Saves the score to the localStorage
+						handleScoreSave(temp);
+						return temp;
+					});
 					setResultString("You lose");
 					break;
 				case "Draw":
-					setResultString("You draw");
+					setResultString("draw");
 					break;
 
 				default:
@@ -62,6 +78,8 @@ export function GameContextProvider({ children }: ChildrenType) {
 				setIsCalculateWinner,
 				resultString,
 				setResultString,
+				scoreReset,
+				setScoreReset,
 			}}
 		>
 			{children}
