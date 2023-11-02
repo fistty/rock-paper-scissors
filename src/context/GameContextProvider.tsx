@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, ReactElement } from "react";
+import { useState, useEffect, ReactElement } from "react";
 import { GameRules, winnerCalculator } from "../gameLogic";
 import { GameContext } from "./GameContext";
 
@@ -6,11 +6,12 @@ type ChildrenType = { children?: ReactElement | ReactElement[] };
 
 export function GameContextProvider({ children }: ChildrenType) {
 	const [gameScore, setGameScore] = useState<number>(0);
-	const [playerPick, setPlayerPick] = useState(false);
-	const [playerPickString, setPlayerPickString] = useState("");
-	const [computerPick, setComputerPick] = useState(false);
-	const [computerPickString, setComputerPickString] = useState("");
-	const [isCalculateWinner, setIsCalculateWinner] = useState(false);
+	const [playerPick, setPlayerPick] = useState<boolean>(false);
+	const [playerPickString, setPlayerPickString] = useState<string>("");
+	const [computerPick, setComputerPick] = useState<boolean>(false);
+	const [computerPickString, setComputerPickString] = useState<string>("");
+	const [isCalculateWinner, setIsCalculateWinner] = useState<boolean>(false);
+	const [resultString, setResultString] = useState<string>("");
 
 	useEffect(() => {
 		const score: string = localStorage.getItem("score") || "0";
@@ -19,7 +20,28 @@ export function GameContextProvider({ children }: ChildrenType) {
 
 	useEffect(() => {
 		if (isCalculateWinner) {
-			winnerCalculator(playerPickString as keyof GameRules, computerPickString);
+			const result = winnerCalculator(
+				playerPickString as keyof GameRules,
+				computerPickString
+			);
+
+			switch (result) {
+				case "Win":
+					setGameScore((prev) => prev + 1);
+					setResultString("You win");
+					break;
+				case "Lose":
+					setGameScore((prev) => prev - 1);
+					setResultString("You lose");
+					break;
+				case "Draw":
+					setResultString("You draw");
+					break;
+
+				default:
+					alert("Result not valid");
+					throw new Error("Result not valid");
+			}
 		}
 	}, [isCalculateWinner]);
 
@@ -38,6 +60,8 @@ export function GameContextProvider({ children }: ChildrenType) {
 				setComputerPickString,
 				isCalculateWinner,
 				setIsCalculateWinner,
+				resultString,
+				setResultString,
 			}}
 		>
 			{children}

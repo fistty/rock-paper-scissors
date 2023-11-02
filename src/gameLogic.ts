@@ -11,20 +11,16 @@ const gameRules: GameRules = {
 };
 
 export const winnerCalculator = (
-	playerPick: keyof GameRules,
-	computerPick: string
-): string => {
-	if (playerPick === computerPick) {
-		// console.log("Draw");
+	playerPickString: keyof GameRules,
+	computerPickString: string
+): "Win" | "Draw" | "Lose" => {
+	if (playerPickString === computerPickString) {
 		return "Draw";
 	}
 
-	if (gameRules[playerPick].beats === computerPick) {
-		// console.log("Win");
-		return "You Win";
+	if (gameRules[playerPickString].beats === computerPickString) {
+		return "Win";
 	}
 
-	// console.log("Lose");
-
-	return "You Lose";
+	return "Lose";
 };
