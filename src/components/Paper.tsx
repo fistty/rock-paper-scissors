@@ -1,26 +1,26 @@
 import { useRef } from "react";
 import paperIcon from "../assets/icon-paper.svg";
 import { PropTypes } from "../types";
+import { useGameContext } from "../hooks/useGameContext";
 
-export default function Paper({
-	playerPick,
-	setPlayerPick,
-	isParagraph,
-}: PropTypes) {
+export default function Paper({ isParagraph }: PropTypes) {
 	const paperRef = useRef<HTMLButtonElement>(null);
 
+	const { playerPick, setPlayerPick, setPlayerPickString } = useGameContext();
+
 	const cardSelection = () => {
+		setPlayerPick(true);
+		setPlayerPickString("Paper");
+		console.log("WHYY");
+
 		const cls = ["paper-card-transform", "picked-card"];
 		paperRef.current?.classList.add(...cls);
-		if (setPlayerPick) {
-			setPlayerPick("Paper");
-		}
 	};
 
 	return (
 		<button
 			className="game-card paper-card"
-			disabled={playerPick === "" ? false : true}
+			disabled={playerPick ? true : false}
 			onClick={cardSelection}
 			ref={paperRef}
 		>

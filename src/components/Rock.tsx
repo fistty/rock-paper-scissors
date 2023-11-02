@@ -1,30 +1,23 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import rockIcon from "../assets/icon-rock.svg";
 import { PropTypes } from "../types";
+import { useGameContext } from "../hooks/useGameContext";
 
-export default function Rock({
-	playerPick,
-	setPlayerPick,
-	isParagraph,
-}: PropTypes) {
+export default function Rock({ isParagraph }: PropTypes) {
 	const rockRef = useRef<HTMLButtonElement>(null);
 
+	const { playerPick, setPlayerPick, setPlayerPickString } = useGameContext();
+
 	const cardSelection = () => {
+		setPlayerPick(true);
+		setPlayerPickString("Rock");
 		const cls = ["rock-card-transform", "picked-card"];
 		rockRef.current?.classList.add(...cls);
-		if (setPlayerPick) {
-			setPlayerPick("Rock");
-		}
 	};
-
-	useEffect(() => {
-		rockRef.current?.classList.remove("rock-card-amination");
-	}, []);
-
 	return (
 		<button
 			className={"game-card rock-card"}
-			disabled={playerPick === "" ? false : true}
+			disabled={playerPick ? true : false}
 			onClick={cardSelection}
 			ref={rockRef}
 		>

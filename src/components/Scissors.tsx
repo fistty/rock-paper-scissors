@@ -1,30 +1,25 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import scissorsIcon from "../assets/icon-scissors.svg";
 import { PropTypes } from "../types";
+import { useGameContext } from "../hooks/useGameContext";
 
-export default function Scissors({
-	playerPick,
-	setPlayerPick,
-	isParagraph,
-}: PropTypes) {
+export default function Scissors({ isParagraph }: PropTypes) {
 	const scissorsRef = useRef<HTMLButtonElement>(null);
 
+	const { playerPick, setPlayerPick, setPlayerPickString } = useGameContext();
+
 	const cardSelection = () => {
+		setPlayerPick(true);
+		setPlayerPickString("Paper");
+
 		const cls = ["scissors-card-transform", "picked-card"];
 		scissorsRef.current?.classList.add(...cls);
-		if (setPlayerPick) {
-			setPlayerPick("Scissors");
-		}
 	};
-
-	useEffect(() => {
-		scissorsRef.current?.classList.remove("scissors-card-amination");
-	}, []);
 
 	return (
 		<button
 			className="game-card scissors-card"
-			disabled={playerPick === "" ? false : true}
+			disabled={playerPick ? true : false}
 			onClick={cardSelection}
 			ref={scissorsRef}
 		>
