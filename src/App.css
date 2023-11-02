@@ -117,12 +117,14 @@ footer {
 
 .footer-button:disabled {
 	cursor: not-allowed;
-	border: 2px solid #ffffffbe;
+	border: 2px solid #b4b4b4be;
+	color: rgb(117, 117, 117);
 }
 
 .footer-button:disabled:hover {
+	cursor: not-allowed;
+	color: rgb(117, 117, 117);
 	background-color: unset;
-	color: unset;
 }
 
 .footer-button:hover {
