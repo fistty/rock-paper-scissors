@@ -10,7 +10,7 @@ export default function Scissors({ isParagraph }: PropTypes) {
 
 	const cardSelection = () => {
 		setPlayerPick(true);
-		setPlayerPickString("Paper");
+		setPlayerPickString("Scissors");
 
 		const cls = ["scissors-card-transform", "picked-card"];
 		scissorsRef.current?.classList.add(...cls);
