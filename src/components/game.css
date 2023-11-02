@@ -39,6 +39,10 @@
 	transition: all 200ms ease;
 }
 
+.game-card span {
+	display: none;
+}
+
 @media screen and (max-width: 320px) {
 	.game-card {
 		width: 120px;
