@@ -2,17 +2,20 @@ import { createContext } from "react";
 
 type GameContextType = {
 	gameScore: number;
-	setGameScore: (value: number) => void;
+	setGameScore: React.Dispatch<React.SetStateAction<number>>;
 	playerPick: boolean;
-	setPlayerPick: (value: boolean) => void;
+	setPlayerPick: React.Dispatch<React.SetStateAction<boolean>>;
 	playerPickString: string;
-	setPlayerPickString: (value: string) => void;
+	setPlayerPickString: React.Dispatch<React.SetStateAction<string>>;
 	computerPick: boolean;
-	setComputerPick: (value: boolean) => void;
+	setComputerPick: React.Dispatch<React.SetStateAction<boolean>>;
 	computerPickString: string;
-	setComputerPickString: (value: string) => void;
+	setComputerPickString: React.Dispatch<React.SetStateAction<string>>;
 	isCalculateWinner: boolean;
-	setIsCalculateWinner: (value: boolean) => void;
+	setIsCalculateWinner: React.Dispatch<React.SetStateAction<boolean>>;
+
+	resultString: string;
+	setResultString: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const initialGameContext: GameContextType = {
@@ -28,6 +31,8 @@ const initialGameContext: GameContextType = {
 	setComputerPickString: () => {},
 	isCalculateWinner: false,
 	setIsCalculateWinner: () => {},
+	resultString: "",
+	setResultString: () => {},
 };
 
 export const GameContext = createContext(initialGameContext);

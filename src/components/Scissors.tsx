@@ -1,9 +1,9 @@
 import { useRef } from "react";
+import { GameCardPropTypes } from "../types";
+import { useGameContext } from "../context/hooks/useGameContext";
 import scissorsIcon from "../assets/icon-scissors.svg";
-import { PropTypes } from "../types";
-import { useGameContext } from "../hooks/useGameContext";
 
-export default function Scissors({ isParagraph }: PropTypes) {
+export default function Scissors({ isParagraph }: GameCardPropTypes) {
 	const scissorsRef = useRef<HTMLButtonElement>(null);
 
 	const { playerPick, setPlayerPick, setPlayerPickString } = useGameContext();

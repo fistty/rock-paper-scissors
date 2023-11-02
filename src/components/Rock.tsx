@@ -1,9 +1,9 @@
 import { useRef } from "react";
+import { useGameContext } from "../context/hooks/useGameContext";
+import { GameCardPropTypes } from "../types";
 import rockIcon from "../assets/icon-rock.svg";
-import { PropTypes } from "../types";
-import { useGameContext } from "../hooks/useGameContext";
 
-export default function Rock({ isParagraph }: PropTypes) {
+export default function Rock({ isParagraph }: GameCardPropTypes) {
 	const rockRef = useRef<HTMLButtonElement>(null);
 
 	const { playerPick, setPlayerPick, setPlayerPickString } = useGameContext();
