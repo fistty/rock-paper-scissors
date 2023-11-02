@@ -1,10 +1,12 @@
-type countType = { count: number };
+import { useGameContext } from "../context/GameContextProvider";
 
-export default function Score({ count }: countType) {
+export default function Score() {
+	const { gameScore } = useGameContext();
+
 	return (
 		<div className="score-div">
 			<p className="score-description">Score</p>
-			<p className="score-count">{count} </p>
+			<p className="score-count"> {gameScore} </p>
 		</div>
 	);
 }
