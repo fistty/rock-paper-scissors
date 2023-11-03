@@ -21,5 +21,6 @@ A rock paper scissors game from Frontend Mentor. Saves score to localStorage wit
 
 ## Author
 
-- Website - [Portfolio](https://amos-dev.vercel.app/)
-- Twitter - [@yourusername](https://twitter.com/Prince_emilos)
+- Website - [Portfolio]("https://amos-dev.vercel.app/")
+- Twitter - [PrinceEmilos]("https://twitter.com/Prince_emilos")
+- LinkedIn - [Osuntuyi]("https://www.linkedin.com/in/ayomide-osuntuyi-8a08b21a2/")
