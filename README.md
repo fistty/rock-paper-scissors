@@ -2,7 +2,7 @@
 
 A rock paper scissors game from Frontend Mentor. Saves score to localStorage with animations and state management.
 
-[Rock, Paper, Scissors challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH).
+[Rock, Paper, Scissors Challenge](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH).
 
 ## Links
 
@@ -21,6 +21,6 @@ A rock paper scissors game from Frontend Mentor. Saves score to localStorage wit
 
 ## Author
 
-- Website - [Portfolio]("https://amos-dev.vercel.app/")
-- Twitter - [PrinceEmilos]("https://twitter.com/Prince_emilos")
-- LinkedIn - [Osuntuyi]("https://www.linkedin.com/in/ayomide-osuntuyi-8a08b21a2/")
+- Website - [Portfolio](https://amos-dev.vercel.app/)
+- Twitter - [PrinceEmilos](https://twitter.com/Prince_emilos)
+- LinkedIn - [Osuntuyi](https://www.linkedin.com/in/ayomide-osuntuyi-8a08b21a2/)
