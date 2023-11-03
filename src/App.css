@@ -3,6 +3,12 @@
 	min-height: 100vh;
 }
 
+@media screen and (max-width: 1000px) and (min-height: 720px) {
+	#root {
+		max-height: 100vh;
+	}
+}
+
 .app {
 	max-width: 900rem;
 	min-height: 100vh;
@@ -33,12 +39,11 @@ header {
 	max-width: 500px;
 	height: 6.125rem;
 	border: 3px solid #606e85;
-	border-radius: 0.3125rem;
+	border-radius: 5px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	margin: 0 auto;
-
 	padding-right: 0.75rem;
 	padding-left: 1.5625rem;
 }
@@ -80,6 +85,39 @@ header {
 	color: #3b4363;
 	font-size: 2.1875rem;
 	font-weight: 700;
+}
+
+@media screen and (min-width: 1200px) {
+	header {
+		padding-top: 2.9375rem;
+	}
+
+	.header-container {
+		max-width: unset;
+		border-radius: 14px;
+		width: 43.875rem;
+		height: 9.5rem;
+	}
+
+	.game-logo-container {
+		width: 9.75rem;
+		height: 5.875rem;
+	}
+
+	.score-div {
+		background-color: white;
+		width: 9.375rem;
+		height: 7.125rem;
+		border-radius: 7px;
+	}
+
+	.score-description {
+		font-size: 16px;
+	}
+
+	.score-count {
+		font-size: 64px;
+	}
 }
 
 /*-----------------------------------*\

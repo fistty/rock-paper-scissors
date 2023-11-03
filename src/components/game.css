@@ -264,6 +264,7 @@
 	color: rgb(232 67 101);
 }
 
+/* Removes hover effect for devices 1100px and below  */
 @media screen and (max-width: 1100px) {
 	.game-card:hover {
 		filter: brightness(1.1);
@@ -276,5 +277,24 @@
 
 	.rock-card-transform:hover {
 		transform: unset;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.main-game {
+		margin-top: 3.9375rem;
+		width: 477px;
+		height: 422px;
+		/* transition: transform 1ms ease; */
+	}
+
+	.main-game-transform {
+		transform: translateY(5%);
+	}
+
+	.picked-card > span,
+	.computer-pick > span {
+		top: -30%;
+		bottom: unset;
 	}
 }
