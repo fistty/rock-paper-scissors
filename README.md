@@ -1,6 +1,12 @@
 # Rock Paper Scissors
 
-A rock paper scissors game from Frontend Mentor. Saves score to localStorage with animations and state management.
+A rock paper scissors game from Frontend Mentor.
+
+## Added Features
+
+- Card cards amimation
+- Saves score to localStorage
+- Score reset
 
 [Rock, Paper, Scissors Challenge](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH).
 
