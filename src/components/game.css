@@ -297,6 +297,21 @@
 		height: 195px;
 	}
 
+	.paper-card img {
+		width: 66px;
+		height: 80px;
+	}
+
+	.scissors-card img {
+		width: 69px;
+		height: 79px;
+	}
+
+	.rock-card img {
+		width: 65px;
+		height: 65px;
+	}
+
 	.game-card-image-container {
 		width: 153px;
 		height: 153px;
