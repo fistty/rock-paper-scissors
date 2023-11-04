@@ -23,6 +23,8 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		min-height: unset;
+		max-height: 100vh;
 	}
 	footer {
 		margin-bottom: 2rem;
@@ -128,7 +130,7 @@ footer {
 	width: calc(100% - 30px);
 	max-width: 500px;
 	margin: 0 auto;
-	margin-bottom: 2rem;
+	padding-bottom: 2rem;
 	margin-top: 10em;
 	display: flex;
 	align-items: center;
