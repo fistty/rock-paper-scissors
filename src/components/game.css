@@ -292,6 +292,16 @@
 		transform: translateY(5%);
 	}
 
+	.game-card {
+		width: 200px;
+		height: 195px;
+	}
+
+	.game-card-image-container {
+		width: 153px;
+		height: 153px;
+	}
+
 	.picked-card > span,
 	.computer-pick > span {
 		top: -30%;

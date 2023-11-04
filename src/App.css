@@ -12,9 +12,6 @@
 .app {
 	max-width: 900rem;
 	min-height: 100vh;
-	/* display: flex;
-	flex-direction: column;
-	justify-content: space-between; */
 	position: relative;
 }
 
