@@ -1,28 +1,27 @@
 #root {
 	width: 100%;
-	min-height: 100vh;
+	max-height: 98vh;
 }
 
-@media screen and (max-width: 1000px) and (min-height: 720px) {
+/* @media screen and (max-width: 1000px) and (min-height: 720px) {
 	#root {
-		max-height: 100vh;
+		max-height: 98vh;
 	}
-}
+} */
 
 .app {
 	max-width: 900rem;
-	min-height: 100vh;
+	min-height: 98vh;
 	position: relative;
 }
 
-@media screen and (min-height: 800px) {
+@media screen and (min-height: 700px) {
 	.app {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		min-height: 95vh;
-		max-height: 100vh;
 	}
+
 	footer {
 		margin-bottom: 2rem;
 	}
@@ -84,39 +83,6 @@ header {
 	color: #3b4363;
 	font-size: 2.1875rem;
 	font-weight: 700;
-}
-
-@media screen and (min-width: 1200px) {
-	header {
-		padding-top: 2.9375rem;
-	}
-
-	.header-container {
-		max-width: unset;
-		border-radius: 14px;
-		width: 43.875rem;
-		height: 9.5rem;
-	}
-
-	.game-logo-container {
-		width: 9.75rem;
-		height: 5.875rem;
-	}
-
-	.score-div {
-		background-color: white;
-		width: 9.375rem;
-		height: 7.125rem;
-		border-radius: 7px;
-	}
-
-	.score-description {
-		font-size: 16px;
-	}
-
-	.score-count {
-		font-size: 64px;
-	}
 }
 
 /*-----------------------------------*\
@@ -238,4 +204,37 @@ h2 {
 	width: 100%;
 	max-width: 100%;
 	display: block;
+}
+
+@media screen and (min-width: 1000px) {
+	header {
+		padding-top: 2.9375rem;
+	}
+
+	.header-container {
+		max-width: unset;
+		border-radius: 14px;
+		width: 43.875rem;
+		height: 9.5rem;
+	}
+
+	.game-logo-container {
+		width: 9.75rem;
+		height: 5.875rem;
+	}
+
+	.score-div {
+		background-color: white;
+		width: 9.375rem;
+		height: 7.125rem;
+		border-radius: 7px;
+	}
+
+	.score-description {
+		font-size: 16px;
+	}
+
+	.score-count {
+		font-size: 64px;
+	}
 }

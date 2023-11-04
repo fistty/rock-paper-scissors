@@ -7,7 +7,7 @@
 	max-width: 337px;
 	height: 282px;
 	margin: 0 auto;
-	margin-top: 96px;
+	margin-top: 90px;
 	position: relative;
 	background-image: url("../assets//bg-triangle.svg");
 	background-position: center;
@@ -51,8 +51,11 @@
 }
 
 .game-card:hover {
-	filter: brightness(1.05);
-	transform: scale(1.2);
+	transform: scale(1.1);
+}
+
+.game-card:hover > div {
+	filter: brightness(1.07);
 }
 
 .game-card-image-container {
@@ -64,6 +67,7 @@
 	justify-content: center;
 	align-items: center;
 	box-shadow: 0px 5px 1px 0px rgb(185 192 193) inset;
+	transition: filter 200ms ease;
 }
 
 @media screen and (max-width: 335px) {
@@ -126,7 +130,7 @@
 }
 
 .rock-card:hover {
-	transform: translateX(-50%) scale(1.2);
+	transform: translateX(-50%) scale(1.1);
 }
 
 .rock-card-transform:hover {
@@ -139,6 +143,10 @@
 
 .picked-card:hover {
 	transform: unset;
+}
+
+.picked-card:hover span {
+	filter: brightness(1);
 }
 
 .computer-pick {
@@ -178,7 +186,7 @@
 	background-color: #0f182a;
 	border-radius: 50%;
 	box-shadow: 0px 0px 0px 1px #0000001a;
-	animation: pulse-animation 2s infinite ease-in;
+	animation: pulse-animation 1.9s infinite ease;
 }
 
 @keyframes pulse-animation {
@@ -264,8 +272,8 @@
 	color: rgb(232 67 101);
 }
 
-/* Removes hover effect for devices 1100px and below  */
-@media screen and (max-width: 1100px) {
+/* Removes hover effect for devices 1000px and below  */
+@media screen and (max-width: 1000px) {
 	.game-card:hover {
 		filter: brightness(1.1);
 		transform: unset;
@@ -280,16 +288,16 @@
 	}
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) {
 	.main-game {
-		margin-top: 3.9375rem;
+		margin-top: 90px;
+		max-width: unset;
 		width: 477px;
 		height: 422px;
-		/* transition: transform 1ms ease; */
 	}
 
 	.main-game-transform {
-		transform: translateY(5%);
+		transform: translateY(0%);
 	}
 
 	.game-card {
@@ -315,11 +323,37 @@
 	.game-card-image-container {
 		width: 153px;
 		height: 153px;
+		box-shadow: 0px 7px 1px 0px rgb(185 192 193) inset;
 	}
 
 	.picked-card > span,
 	.computer-pick > span {
 		top: -30%;
 		bottom: unset;
+		font-size: 25px;
+		width: 240px;
+	}
+
+	.computer-pick-placeholder {
+		position: absolute;
+		top: 5%;
+		left: 64.8%;
+		width: 154px;
+		height: 154px;
+		/* z-index: 9; */
+	}
+
+	@keyframes pulse-animation {
+		0% {
+			transform: scale(1.1);
+			box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+		}
+		50% {
+			transform: scale(1.2);
+		}
+		100% {
+			transform: scale(1);
+			box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.176);
+		}
 	}
 }
