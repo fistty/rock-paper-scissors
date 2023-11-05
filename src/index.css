@@ -33,7 +33,7 @@ button {
 }
 
 body {
-	min-height: 100vh;
+	max-height: 96vh;
 	background-size: 150% 150%;
 	background-image: radial-gradient(#1f3756, #141539);
 	color: white;

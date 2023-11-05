@@ -137,9 +137,9 @@
 	transform: scale(1.2);
 }
 
-.picked-card {
+/* .picked-card {
 	position: relative;
-}
+} */
 
 .picked-card:hover {
 	transform: unset;
@@ -290,7 +290,7 @@
 
 @media screen and (min-width: 1000px) {
 	.main-game {
-		margin-top: 90px;
+		margin-top: 80px;
 		max-width: unset;
 		width: 477px;
 		height: 422px;
@@ -340,7 +340,11 @@
 		left: 64.8%;
 		width: 154px;
 		height: 154px;
-		/* z-index: 9; */
+	}
+
+	.game-result {
+		bottom: -2%;
+		/* transform: translateX(-50%) scale(0.5); */
 	}
 
 	@keyframes pulse-animation {
