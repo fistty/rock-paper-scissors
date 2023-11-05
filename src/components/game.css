@@ -13,7 +13,7 @@
 	background-position: center;
 	background-size: 77% 63%;
 	background-repeat: no-repeat;
-	transition: transform 150ms ease;
+	transition: transform 150ms ease, width 200ms ease;
 }
 
 .main-game-no-background {
@@ -288,15 +288,24 @@
 
 @media screen and (min-width: 1000px) {
 	.main-game {
-		margin-top: 80px;
+		margin-top: 63px;
 		max-width: unset;
 		width: 477px;
 		height: 422px;
 		/* border: 1px solid black; */
 	}
 
+	.computer-pick {
+		left: unset;
+		right: -23%;
+	}
+
 	.main-game-transform {
 		transform: translateY(0%);
+	}
+
+	.main-game.bigger-width {
+		width: 650px;
 	}
 
 	.game-card {
@@ -386,8 +395,27 @@
 	}
 
 	.game-result {
-		bottom: -2%;
-		transform: translateX(-50%) scale(0.7);
+		top: 20%;
+		bottom: unset;
+		width: 220px;
+		height: 130px;
+		font-size: 60px;
+		/* border: 1px solid red; */
+		transform: translateX(-50%) scale(0.5);
+		animation: scaleBig 150ms forwards ease;
+	}
+
+	@keyframes scaleBig {
+		0% {
+			transform: translateX(-50%) scale(0.5);
+		}
+		100% {
+			transform: translateX(-50%) scale(1);
+		}
+	}
+
+	.result-win-lose > p {
+		font-size: 55px;
 	}
 
 	@keyframes pulse-animation {
