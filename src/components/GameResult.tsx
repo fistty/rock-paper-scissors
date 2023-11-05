@@ -25,12 +25,10 @@ export default function GameResult({
 	} = useGameContext();
 
 	const handlePlayAgain = () => {
+		gameComponentRef.current?.classList.remove("bigger-width");
 		setPlayerPick(false);
 
 		const pickedCard = document.querySelector(".picked-card");
-
-		//Removes the Play Again button
-		setGameResultDisplay(false);
 
 		//Removes the class from the user picked card
 		const pickedCardClass = [
@@ -41,6 +39,9 @@ export default function GameResult({
 		];
 
 		pickedCard?.classList.remove(...pickedCardClass);
+
+		//Removes the Play Again button
+		setGameResultDisplay(false);
 
 		//Resets the UI to the beginning
 		setIsCalculateWinner(false);

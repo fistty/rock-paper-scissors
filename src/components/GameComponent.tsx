@@ -89,6 +89,7 @@ export default function GameComponent() {
 				setIsPlaceholder={setIsPlaceholder}
 				computerPickDisplay={computerPickDisplay}
 				setComputerPickDisplay={setComputerPickDisplay}
+				gameComponentRef={gameComponentRef}
 			/>
 			{gameResultDisplay && (
 				<GameResult

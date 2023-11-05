@@ -9,6 +9,7 @@ export interface ComputerPickPropTypes {
 	setIsPlaceholder: React.Dispatch<React.SetStateAction<boolean>>;
 	computerPickDisplay: boolean;
 	setComputerPickDisplay: React.Dispatch<React.SetStateAction<boolean>>;
+	gameComponentRef: React.MutableRefObject<HTMLElement | null>;
 }
 
 export default function ComputerPick({
@@ -16,6 +17,7 @@ export default function ComputerPick({
 	setIsPlaceholder,
 	computerPickDisplay,
 	setComputerPickDisplay,
+	gameComponentRef,
 }: ComputerPickPropTypes) {
 	const [image, setImage] = useState<string>("");
 	const [computerPickClassName, setComputerPickClassName] = useState<string>("");
@@ -80,7 +82,9 @@ export default function ComputerPick({
 			setTimeout(() => {
 				setIsPlaceholder(true);
 			}, 350);
+
 			setTimeout(() => {
+				gameComponentRef.current?.classList.add("bigger-width");
 				setIsCalculateWinner(true);
 				setIsPlaceholder(false);
 				setComputerPickDisplay(true);
