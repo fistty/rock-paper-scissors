@@ -30,7 +30,7 @@ export default function Scissors({ isParagraph }: GameCardPropTypes) {
 			ref={scissorsRef}
 		>
 			<div className="game-card-image-container">
-				<img src={scissorsIcon} alt="scissors icon" />
+				<img src={scissorsIcon} alt="scissors icon" className="scissors-image" />
 			</div>
 			{isParagraph && <span>You picked </span>}
 		</button>

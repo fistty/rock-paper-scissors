@@ -29,7 +29,7 @@ export default function Rock({ isParagraph }: GameCardPropTypes) {
 			ref={rockRef}
 		>
 			<div className="game-card-image-container">
-				<img src={rockIcon} alt="rock icon" />
+				<img src={rockIcon} alt="rock icon" className="rock-image" />
 			</div>
 			{isParagraph && <span>You picked </span>}
 		</button>

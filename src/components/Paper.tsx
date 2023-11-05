@@ -30,7 +30,7 @@ export default function Paper({ isParagraph }: GameCardPropTypes) {
 			ref={paperRef}
 		>
 			<div className="game-card-image-container">
-				<img src={paperIcon} alt="paper icon" />
+				<img src={paperIcon} alt="paper icon" className="paper-image" />
 			</div>
 			{isParagraph && <span>You picked </span>}
 		</button>

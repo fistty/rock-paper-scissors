@@ -67,7 +67,7 @@
 	justify-content: center;
 	align-items: center;
 	box-shadow: 0px 5px 1px 0px rgb(185 192 193) inset;
-	transition: filter 200ms ease;
+	transition: all 150ms ease;
 }
 
 @media screen and (max-width: 335px) {
@@ -101,8 +101,6 @@
 	position: absolute;
 	top: 0%;
 	left: 60%;
-	/* right: 0%; */
-	/* transform: translateX(159%); */
 	outline: none;
 	background-color: unset;
 	box-shadow: rgb(179 128 27) 1px 7px 0px 0px;
@@ -294,6 +292,7 @@
 		max-width: unset;
 		width: 477px;
 		height: 422px;
+		/* border: 1px solid black; */
 	}
 
 	.main-game-transform {
@@ -303,6 +302,49 @@
 	.game-card {
 		width: 200px;
 		height: 195px;
+	}
+
+	.picked-card,
+	.computer-pick {
+		width: 293px;
+		height: 287px;
+		top: 5%;
+	}
+
+	.paper-card-transform {
+		left: -23%;
+	}
+
+	.scissors-card-transform {
+		left: -23%;
+	}
+
+	.rock-card-transform {
+		left: -23%;
+	}
+
+	.picked-card > .game-card-image-container,
+	.computer-pick > .game-card-image-container {
+		width: 225px;
+		height: 225px;
+	}
+
+	.picked-card .paper-image,
+	.computer-pick.paper-card img {
+		width: 99px;
+		height: 119px;
+	}
+
+	.picked-card .scissors-image,
+	.computer-pick.scissors-card img {
+		width: 103px;
+		height: 115px;
+	}
+
+	.picked-card .rock-image,
+	.computer-pick.rock-card img {
+		width: 96px;
+		height: 96px;
 	}
 
 	.paper-card img {
@@ -328,7 +370,7 @@
 
 	.picked-card > span,
 	.computer-pick > span {
-		top: -30%;
+		top: -24%;
 		bottom: unset;
 		font-size: 25px;
 		width: 240px;
@@ -336,24 +378,25 @@
 
 	.computer-pick-placeholder {
 		position: absolute;
-		top: 5%;
-		left: 64.8%;
-		width: 154px;
-		height: 154px;
+		top: 7.3%;
+		left: 69.3%;
+		width: 225px;
+		height: 225px;
+		z-index: 9;
 	}
 
 	.game-result {
 		bottom: -2%;
-		/* transform: translateX(-50%) scale(0.5); */
+		transform: translateX(-50%) scale(0.7);
 	}
 
 	@keyframes pulse-animation {
 		0% {
-			transform: scale(1.1);
+			transform: scale(1);
 			box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
 		}
 		50% {
-			transform: scale(1.2);
+			transform: scale(1.12);
 		}
 		100% {
 			transform: scale(1);
