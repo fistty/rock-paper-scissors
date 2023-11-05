@@ -79,7 +79,7 @@ export default function ComputerPick({
 		if (computerPick) {
 			setTimeout(() => {
 				setIsPlaceholder(true);
-			}, 700);
+			}, 350);
 			setTimeout(() => {
 				setIsCalculateWinner(true);
 				setIsPlaceholder(false);

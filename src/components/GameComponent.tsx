@@ -66,7 +66,7 @@ export default function GameComponent() {
 
 			setTimeout(() => {
 				setIsParagraph(true);
-			}, 700);
+			}, 350);
 		}
 	}, [playerPick]);
 
