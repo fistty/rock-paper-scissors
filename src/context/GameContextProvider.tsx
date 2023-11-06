@@ -32,12 +32,16 @@ export function GameContextProvider({ children }: ChildrenType) {
 				computerPickString
 			);
 
+			const pickedCard = document.querySelector(".picked-card");
+			const computerPick = document.querySelector(".computer-pick");
+
 			switch (result) {
 				case "Win":
 					setGameScore((prev) => {
 						const temp = prev + 1;
 						// Saves the score to the localStorage
 						handleScoreSave(temp);
+						pickedCard?.classList.add("winner-shadow");
 						return temp;
 					});
 					setResultString("You win");
@@ -47,6 +51,7 @@ export function GameContextProvider({ children }: ChildrenType) {
 						const temp = prev - 1;
 						// Saves the score to the localStorage
 						handleScoreSave(temp);
+						computerPick?.classList.add("winner-shadow");
 						return temp;
 					});
 					setResultString("You lose");
