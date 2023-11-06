@@ -135,16 +135,34 @@
 	transform: scale(1.2);
 }
 
-/* .picked-card {
-	position: relative;
-} */
-
 .picked-card:hover {
 	transform: unset;
 }
 
 .picked-card:hover span {
 	filter: brightness(1);
+}
+
+/*  Winner Shadow */
+.rock-card.winner-shadow {
+	box-shadow: 1px 7px 0px 0px rgb(174 47 68),
+		0px 0px 4px 16px rgb(255 255 255 / 2.5%),
+		0px 0px 4px 41px rgb(255 255 255 / 2.5%),
+		0px 0px 4px 68px rgb(255 255 255 / 2.5%);
+}
+
+.paper-card.winner-shadow {
+	box-shadow: rgb(40 63 159) 1px 7px 0px 0px,
+		0px 0px 4px 16px rgb(255 255 255 / 2.5%),
+		0px 0px 4px 41px rgb(255 255 255 / 2.5%),
+		0px 0px 4px 68px rgb(255 255 255 / 2.5%);
+}
+
+.scissors-card.winner-shadow {
+	box-shadow: rgb(179 128 27) 1px 7px 0px 0px,
+		0px 0px 4px 16px rgb(255 255 255 / 2.5%),
+		0px 0px 4px 41px rgb(255 255 255 / 2.5%),
+		0px 0px 4px 68px rgb(255 255 255 / 2.5%);
 }
 
 .computer-pick {
