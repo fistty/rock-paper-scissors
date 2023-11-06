@@ -26,9 +26,9 @@ export default function GameResult({
 
 	const handlePlayAgain = () => {
 		gameComponentRef.current?.classList.remove("bigger-width");
-		setPlayerPick(false);
 
 		const pickedCard = document.querySelector(".picked-card");
+		const computerPick = document.querySelector(".computer-pick");
 
 		//Removes the class from the user picked card
 		const pickedCardClass = [
@@ -36,9 +36,13 @@ export default function GameResult({
 			"paper-card-transform",
 			"scissors-card-transform",
 			"picked-card",
+			"winner-shadow",
 		];
 
 		pickedCard?.classList.remove(...pickedCardClass);
+		computerPick?.classList.remove("winner-shadow");
+
+		setPlayerPick(false);
 
 		//Removes the Play Again button
 		setGameResultDisplay(false);
