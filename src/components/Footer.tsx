@@ -5,7 +5,6 @@ type PropsType = {
 };
 export default function Footer({ setIsRulesVisible }: PropsType) {
 	const openRulesModal = () => {
-		console.log("Clickable");
 		setIsRulesVisible(true);
 	};
 
