@@ -151,19 +151,13 @@ footer {
 }
 
 .rules-container {
-	min-height: 100vh;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
 	padding-top: 4.3125rem;
 	padding-bottom: 4.125rem;
-}
-
-@media screen and (max-height: 550px) {
-	.rules-container {
-		height: 700px;
-	}
 }
 
 h2 {
@@ -176,7 +170,6 @@ h2 {
 
 .rules-image-container {
 	max-width: 305px;
-	height: auto;
 }
 
 .rules-image-container img {
@@ -212,6 +205,55 @@ h2 {
 	display: block;
 }
 
+@media screen and (min-width: 1000px) {
+	#rules {
+		width: 400px;
+		height: 415px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		padding-inline: 2rem;
+		border-radius: 10px;
+	}
+
+	.rules-container {
+		display: grid;
+		row-gap: 49px;
+		justify-content: unset;
+		align-items: unset;
+		padding-top: 38px;
+		padding-bottom: unset;
+		grid-template-areas:
+			"h2  close-container"
+			"img-container img-container";
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 28px 1fr;
+	}
+
+	h2 {
+		grid-area: h2;
+		width: 100%;
+		font-size: 28px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	.rules-image-container {
+		grid-area: img-container;
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	.rules-close-button-container {
+		grid-area: close-container;
+		width: 100%;
+		height: unset;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+}
 @media screen and (min-width: 1000px) {
 	header {
 		padding-top: 2.9375rem;
