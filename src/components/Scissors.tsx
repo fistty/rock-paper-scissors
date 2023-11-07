@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { GameCardPropTypes } from "../types";
-import { useGameContext } from "../context/hooks/useGameContext";
+import { useGameContext } from "../hooks/useGameContext";
 import scissorsIcon from "../assets/icon-scissors.svg";
 
 export default function Scissors({ isParagraph }: GameCardPropTypes) {

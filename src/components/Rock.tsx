@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useGameContext } from "../context/hooks/useGameContext";
+import { useGameContext } from "../hooks/useGameContext";
 import { GameCardPropTypes } from "../types";
 import rockIcon from "../assets/icon-rock.svg";
 

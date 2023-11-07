@@ -5,7 +5,7 @@ import Scissors from "./Scissors";
 import ComputerPick from "./ComputerPick";
 import GameResult from "./GameResult";
 import "./game.css";
-import { useGameContext } from "../context/hooks/useGameContext";
+import { useGameContext } from "../hooks/useGameContext";
 
 export default function GameComponent() {
 	const [gameResultDisplay, setGameResultDisplay] = useState<boolean>(false);

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import paperIcon from "../assets/icon-paper.svg";
 import rockIcon from "../assets/icon-rock.svg";
 import scissorsIcon from "../assets/icon-scissors.svg";
-import { useGameContext } from "../context/hooks/useGameContext";
+import { useGameContext } from "../hooks/useGameContext";
 
 export interface ComputerPickPropTypes {
 	isPlaceholder: boolean;

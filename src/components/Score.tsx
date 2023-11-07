@@ -1,4 +1,4 @@
-import { useGameContext } from "../context/hooks/useGameContext";
+import { useGameContext } from "../hooks/useGameContext";
 
 export default function Score() {
 	const { gameScore } = useGameContext();

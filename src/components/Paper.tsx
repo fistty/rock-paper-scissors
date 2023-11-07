@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { GameCardPropTypes } from "../types";
-import { useGameContext } from "../context/hooks/useGameContext";
+import { useGameContext } from "../hooks/useGameContext";
 import paperIcon from "../assets/icon-paper.svg";
 
 export default function Paper({ isParagraph }: GameCardPropTypes) {

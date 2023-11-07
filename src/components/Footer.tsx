@@ -1,4 +1,4 @@
-import { useGameContext } from "../context/hooks/useGameContext";
+import { useGameContext } from "../hooks/useGameContext";
 
 type PropsType = {
 	setIsRulesVisible: React.Dispatch<React.SetStateAction<boolean>>;

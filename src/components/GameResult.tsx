@@ -1,4 +1,4 @@
-import { useGameContext } from "../context/hooks/useGameContext";
+import { useGameContext } from "../hooks/useGameContext";
 
 export interface PropTypes {
 	setGameResultDisplay: React.Dispatch<React.SetStateAction<boolean>>;
@@ -59,8 +59,8 @@ export default function GameResult({
 		setComputerPickString("");
 		setComputerPickDisplay(false);
 		// const gameComponentClass = ["main-game-transform", "main-game-no-background"];
-		const gameComponentClass = ["main-game-no-background"];
-		gameComponentRef.current?.classList.remove(...gameComponentClass);
+		// const gameComponentClass = ["main-game-no-background"];
+		// gameComponentRef.current?.classList.remove(...gameComponentClass);
 	};
 
 	return (
