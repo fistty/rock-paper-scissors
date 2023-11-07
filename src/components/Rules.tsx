@@ -17,16 +17,17 @@ export default function Rules({ setIsRulesVisible }: PropsType) {
 
 	useEffect(() => {
 		// When the component mounts, start the animation
-		controls.start({ opacity: 1, x: 0 });
+		controls.start({ scale: 1 });
+		// controls.start({ transform:});
 	}, []);
 
 	return (
 		<motion.div
 			id="rules"
-			initial={{ opacity: 0, x: 500 }}
+			initial={{ scale: 0.9 }}
 			animate={controls}
-			exit={{ opacity: 0, x: 0 }}
-			transition={{ duration: 0.3 }}
+			exit={{ scale: 0.7 }}
+			transition={{ duration: 0.1 }}
 		>
 			<div className="rules-container">
 				<h2>rules</h2>
