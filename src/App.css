@@ -206,6 +206,43 @@ h2 {
 }
 
 @media screen and (min-width: 1000px) {
+	header {
+		padding-top: 2.9375rem;
+	}
+
+	.header-container {
+		max-width: unset;
+		border-radius: 14px;
+		width: 43.875rem;
+		height: 9.5rem;
+	}
+
+	.game-logo-container {
+		width: 9.75rem;
+		height: 5.875rem;
+	}
+
+	.score-div {
+		background-color: white;
+		width: 9.375rem;
+		height: 7.125rem;
+		border-radius: 7px;
+	}
+
+	.score-description {
+		font-size: 16px;
+	}
+
+	.score-count {
+		font-size: 64px;
+	}
+
+	footer {
+		margin-top: 11px;
+		padding-bottom: 30px;
+		width: calc(100% - 60px);
+	}
+
 	#rules {
 		width: 400px;
 		height: 415px;
@@ -252,43 +289,5 @@ h2 {
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
-	}
-}
-@media screen and (min-width: 1000px) {
-	header {
-		padding-top: 2.9375rem;
-	}
-
-	.header-container {
-		max-width: unset;
-		border-radius: 14px;
-		width: 43.875rem;
-		height: 9.5rem;
-	}
-
-	.game-logo-container {
-		width: 9.75rem;
-		height: 5.875rem;
-	}
-
-	.score-div {
-		background-color: white;
-		width: 9.375rem;
-		height: 7.125rem;
-		border-radius: 7px;
-	}
-
-	.score-description {
-		font-size: 16px;
-	}
-
-	.score-count {
-		font-size: 64px;
-	}
-
-	footer {
-		margin-top: 11px;
-		padding-bottom: 30px;
-		width: calc(100% - 60px);
 	}
 }
