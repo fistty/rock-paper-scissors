@@ -88,7 +88,7 @@ export default function ComputerPick({
 				setIsCalculateWinner(true);
 				setIsPlaceholder(false);
 				setComputerPickDisplay(true);
-			}, 2000);
+			}, 1500);
 		}
 	}, [computerPick]);
 
