@@ -7,6 +7,7 @@ A rock paper scissors game from Frontend Mentor.
 - Card cards amimation
 - Saves score to localStorage
 - Score reset
+- Framer motion
 
 [Rock, Paper, Scissors Challenge](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH).
 
