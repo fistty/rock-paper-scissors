@@ -20,9 +20,9 @@
 	background: unset;
 }
 
-.main-game-transform {
+/* .main-game-transform {
 	transform: translateY(-5%);
-}
+} */
 
 /*-----------------------------------*\
      GAME CARD
@@ -37,6 +37,7 @@
 	cursor: pointer;
 	border: 1px solid transparent;
 	transition: all 200ms ease;
+	will-change: top, left, transform, box-shadow;
 }
 
 .game-card span {
@@ -202,7 +203,7 @@
 	background-color: #0f182ae3;
 	border-radius: 50%;
 	box-shadow: 0px 0px 0px 1px #0000001a;
-	animation: pulse-animation 1.9s infinite ease;
+	animation: pulse-animation 0.9s infinite ease;
 }
 
 @keyframes pulse-animation {
@@ -318,9 +319,9 @@
 		right: -23%;
 	}
 
-	.main-game-transform {
+	/* .main-game-transform {
 		transform: translateY(0%);
-	}
+	} */
 
 	.main-game.bigger-width {
 		width: 650px;
@@ -434,6 +435,19 @@
 		z-index: 9;
 	}
 
+	@keyframes pulse-animation {
+		0% {
+			transform: scale(1);
+			box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+		}
+		50% {
+			transform: scale(1.2);
+		}
+		100% {
+			transform: scale(1);
+			box-shadow: 0 0 0 30px rgba(0, 0, 0, 0);
+		}
+	}
 	.game-result {
 		top: 20%;
 		bottom: unset;
@@ -456,19 +470,5 @@
 
 	.result-win-lose > p {
 		font-size: 55px;
-	}
-
-	@keyframes pulse-animation {
-		0% {
-			transform: scale(1);
-			box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
-		}
-		50% {
-			transform: scale(1.12);
-		}
-		100% {
-			transform: scale(1);
-			box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.176);
-		}
 	}
 }
