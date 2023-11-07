@@ -20,10 +20,6 @@
 		flex-direction: column;
 		justify-content: space-between;
 	}
-
-	footer {
-		margin-bottom: 2rem;
-	}
 }
 
 header {
@@ -92,13 +88,16 @@ header {
 
 footer {
 	width: calc(100% - 30px);
-	max-width: 500px;
+	max-width: 1450px;
 	margin: 0 auto;
-	padding-bottom: 10px;
+	padding-bottom: 0.625rem;
 	margin-top: 10em;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+}
+
+@media screen and (min-width: 1000px) {
 }
 
 .footer-button {
@@ -143,6 +142,12 @@ footer {
 	height: 100%;
 	background-color: white;
 	will-change: transform;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	width: 100%;
+	z-index: 99;
 }
 
 .rules-container {
@@ -155,7 +160,7 @@ footer {
 	padding-bottom: 4.125rem;
 }
 
-@media screen and (max-height: 520px) {
+@media screen and (max-height: 550px) {
 	.rules-container {
 		height: 700px;
 	}
@@ -241,6 +246,7 @@ h2 {
 
 	footer {
 		margin-top: 11px;
-		padding-bottom: 5px;
+		padding-bottom: 30px;
+		width: calc(100% - 60px);
 	}
 }

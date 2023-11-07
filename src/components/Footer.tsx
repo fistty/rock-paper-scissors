@@ -8,7 +8,7 @@ export default function Footer({ setIsRulesVisible }: PropsType) {
 		setIsRulesVisible(true);
 	};
 
-	const { playerPick, setGameScore, isActiveFooterButtons } = useGameContext();
+	const { setGameScore, isActiveFooterButtons } = useGameContext();
 
 	const handleScoreReset = () => {
 		setGameScore(0);
@@ -26,7 +26,7 @@ export default function Footer({ setIsRulesVisible }: PropsType) {
 			</button>
 			<button
 				className="footer-button rules-button"
-				disabled={playerPick ? true : false}
+				disabled={isActiveFooterButtons ? false : true}
 				onClick={openRulesModal}
 			>
 				Rules

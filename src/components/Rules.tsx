@@ -18,7 +18,6 @@ export default function Rules({ setIsRulesVisible }: PropsType) {
 	useEffect(() => {
 		// When the component mounts, start the animation
 		controls.start({ scale: 1 });
-		// controls.start({ transform:});
 	}, []);
 
 	return (
@@ -27,7 +26,7 @@ export default function Rules({ setIsRulesVisible }: PropsType) {
 			initial={{ scale: 0.9 }}
 			animate={controls}
 			exit={{ scale: 0.7 }}
-			transition={{ duration: 0.1 }}
+			transition={{ duration: 0.2 }}
 		>
 			<div className="rules-container">
 				<h2>rules</h2>
