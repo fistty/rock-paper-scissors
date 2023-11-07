@@ -58,7 +58,8 @@ export default function GameResult({
 		setComputerPick(false);
 		setComputerPickString("");
 		setComputerPickDisplay(false);
-		const gameComponentClass = ["main-game-transform", "main-game-no-background"];
+		// const gameComponentClass = ["main-game-transform", "main-game-no-background"];
+		const gameComponentClass = ["main-game-no-background"];
 		gameComponentRef.current?.classList.remove(...gameComponentClass);
 	};
 

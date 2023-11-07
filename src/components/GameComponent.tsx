@@ -60,9 +60,9 @@ export default function GameComponent() {
 	useEffect(() => {
 		if (playerPick) {
 			setComputerPick(true);
-			setTimeout(() => {
-				gameComponentRef.current?.classList.add("main-game-transform");
-			}, 350);
+			// setTimeout(() => {
+			// 	gameComponentRef.current?.classList.add("main-game-transform");
+			// }, 350);
 
 			setTimeout(() => {
 				setIsParagraph(true);
@@ -74,7 +74,7 @@ export default function GameComponent() {
 		if (computerPick) {
 			setTimeout(() => {
 				setGameResultDisplay(true);
-			}, 2000);
+			}, 1500);
 		}
 	}, [computerPick]);
 
